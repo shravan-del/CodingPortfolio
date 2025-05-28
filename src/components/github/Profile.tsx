@@ -7,6 +7,7 @@ import { GitHubStats } from '@/types/github';
 export function Profile() {
   const [stats, setStats] = useState<GitHubStats | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchStats = async () => {
@@ -15,6 +16,7 @@ export function Profile() {
         setStats(data);
       } catch (error) {
         console.error('Error fetching GitHub stats:', error);
+        setError('Failed to load GitHub profile');
       } finally {
         setLoading(false);
       }
@@ -37,8 +39,14 @@ export function Profile() {
     );
   }
 
-  if (!stats) {
-    return null;
+  if (error || !stats) {
+    return (
+      <div className="p-6 rounded-lg bg-white dark:bg-gray-800 shadow-sm">
+        <div className="text-center text-gray-600 dark:text-gray-400">
+          <p>{error || 'GitHub profile not available'}</p>
+        </div>
+      </div>
+    );
   }
 
   return (

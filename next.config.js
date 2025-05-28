@@ -3,9 +3,9 @@ const path = require('path');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
+  output: 'export',
   images: {
-    domains: ['localhost'],
+    domains: ['avatars.githubusercontent.com', 'raw.githubusercontent.com'],
     unoptimized: true
   },
   // Disable React StrictMode for d3 compatibility
