@@ -5,8 +5,17 @@ const path = require('path');
 const nextConfig = {
   output: 'export',
   images: {
-    domains: ['avatars.githubusercontent.com', 'raw.githubusercontent.com'],
-    unoptimized: true
+    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'raw.githubusercontent.com',
+      }
+    ]
   },
   // Disable React StrictMode for d3 compatibility
   reactStrictMode: false,

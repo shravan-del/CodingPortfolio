@@ -1,26 +1,20 @@
-'use client';
-
 import React from 'react';
 import Image from 'next/image';
-import { useParams } from 'next/navigation';
+import { notFound } from 'next/navigation';
 import { projects } from '@/data/projects';
 import { Project } from '@/types/project';
 
-export default function ProjectDetailPage() {
-  const { slug } = useParams();
-  const project = projects.find((p) => p.slug === slug);
+export async function generateStaticParams() {
+  return projects.map((project) => ({
+    slug: project.slug,
+  }));
+}
+
+export default function ProjectDetailPage({ params }: { params: { slug: string } }) {
+  const project = projects.find((p) => p.slug === params.slug);
 
   if (!project) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold mb-4">Project Not Found</h1>
-          <p className="text-gray-600 dark:text-gray-400">
-            The project you're looking for doesn't exist.
-          </p>
-        </div>
-      </div>
-    );
+    notFound();
   }
 
   return (
