@@ -3,7 +3,7 @@
 Welcome to my professional portfolio! I'm a Computer Science student at Virginia Tech with a passion for software development, AI/ML, and creating innovative solutions.
 
 ## 🚀 Live Demo
-[Visit My Portfolio](https://your-portfolio-url.vercel.app)
+[Visit My Portfolio](https://coding-portfolio.vercel.app)
 
 ## 💼 Features
 
