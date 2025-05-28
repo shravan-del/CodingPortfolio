@@ -14,7 +14,8 @@ interface Experience {
   location: string;
   period: string;
   description: string;
-  achievements: string[];
+  highlights: string[];
+  type: string;
 }
 
 interface Skill {
@@ -30,11 +31,12 @@ const experiences: Experience[] = [
     location: 'Blacksburg, VA',
     period: '2020 - Present',
     description: 'Pursuing a Bachelor\'s degree in Computer Science with a focus on AI/ML and Software Development. Current GPA: 3.6',
-    achievements: [
+    highlights: [
       'Dean\'s List for academic excellence',
       'Active member of CS student organizations',
       'Participated in multiple hackathons'
-    ]
+    ],
+    type: 'education'
   },
   {
     title: 'Software Development Intern',
@@ -42,11 +44,12 @@ const experiences: Experience[] = [
     location: 'Remote',
     period: 'Summer 2023',
     description: 'Worked on developing and maintaining web applications using modern technologies.',
-    achievements: [
-      'Developed new features for the company\'s main product',
-      'Collaborated with senior developers on complex projects',
-      'Improved application performance by 30%'
-    ]
+    highlights: [
+      'Developed full-stack features using React and Node.js',
+      'Implemented CI/CD pipelines',
+      'Collaborated with cross-functional teams'
+    ],
+    type: 'work'
   }
 ];
 
@@ -190,7 +193,7 @@ export default function ExperiencePage() {
           className="text-center mb-16"
         >
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Professional Journey
+            Experience
           </h1>
           <div className="w-20 h-1 bg-blue-600 mx-auto rounded"/>
           <p className="mt-6 text-xl text-gray-600 dark:text-gray-300">
@@ -235,25 +238,36 @@ export default function ExperiencePage() {
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow"
+                    transition={{ delay: index * 0.2 }}
+                    className="relative pl-8 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-0.5 before:bg-blue-500"
                   >
-                    <div className="flex justify-between items-start mb-4">
-                      <div>
-                        <h3 className="text-xl font-bold text-gray-900 dark:text-white">{exp.title}</h3>
-                        <p className="text-blue-600 dark:text-blue-400">{exp.company}</p>
+                    <div className="absolute left-0 top-0 w-2 h-2 rounded-full bg-blue-500 -translate-x-[5px]" />
+                    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+                      <div className="flex flex-wrap justify-between items-start mb-4">
+                        <div>
+                          <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                            {exp.title}
+                          </h3>
+                          <p className="text-blue-600 dark:text-blue-400">
+                            {exp.company} • {exp.location}
+                          </p>
+                        </div>
+                        <span className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                          {exp.period}
+                        </span>
                       </div>
-                      <div className="text-right">
-                        <p className="text-gray-600 dark:text-gray-300">{exp.period}</p>
-                        <p className="text-gray-500 dark:text-gray-400">{exp.location}</p>
-                      </div>
-                    </div>
-                    
-                    <div className="mb-4">
-                      <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">Key Achievements</h4>
-                      <ul className="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300">
-                        {exp.achievements.map((achievement, i) => (
-                          <li key={i}>{achievement}</li>
+                      <p className="text-gray-700 dark:text-gray-300 mb-4">
+                        {exp.description}
+                      </p>
+                      <ul className="space-y-2">
+                        {exp.highlights.map((highlight, i) => (
+                          <li
+                            key={i}
+                            className="flex items-start text-gray-600 dark:text-gray-400"
+                          >
+                            <span className="mr-2 text-blue-500">•</span>
+                            {highlight}
+                          </li>
                         ))}
                       </ul>
                     </div>
