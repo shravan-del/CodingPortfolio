@@ -1,11 +1,11 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files';
 import readingTime from 'reading-time';
 import remarkGfm from 'remark-gfm';
-import rehypePrism from 'rehype-prism-plus';
+import rehypePrettyCode from 'rehype-pretty-code';
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
-  filePathPattern: `**/*.mdx`,
+  filePathPattern: '**/*.mdx',
   contentType: 'mdx',
   fields: {
     title: {
@@ -26,6 +26,7 @@ export const Post = defineDocumentType(() => ({
     tags: {
       type: 'list',
       of: { type: 'string' },
+      required: false,
     },
   },
   computedFields: {
@@ -40,11 +41,20 @@ export const Post = defineDocumentType(() => ({
   },
 }));
 
+const rehypePrettyCodeOptions = {
+  theme: 'github-dark',
+  onVisitLine(node: any) {
+    if (node.children.length === 0) {
+      node.children = [{ type: 'text', value: ' ' }];
+    }
+  },
+};
+
 export default makeSource({
   contentDirPath: 'content/posts',
   documentTypes: [Post],
   mdx: {
     remarkPlugins: [remarkGfm],
-    rehypePlugins: [rehypePrism],
+    rehypePlugins: [[rehypePrettyCode, rehypePrettyCodeOptions]],
   },
 }); 
