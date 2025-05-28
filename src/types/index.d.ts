@@ -11,6 +11,7 @@ declare module '@/types/project' {
     startDate?: string;
     endDate?: string;
     category?: string;
+    slug: string;
   }
 }
 

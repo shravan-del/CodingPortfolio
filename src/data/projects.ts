@@ -2,7 +2,48 @@ import { Project } from '@/types/project';
 
 export const projects: Project[] = [
   {
+    id: 'portfolio-website',
+    slug: 'portfolio-website',
+    title: 'Portfolio Website',
+    description: 'A modern, responsive portfolio website built with Next.js, TypeScript, and Tailwind CSS. Features include dark mode, animations with Framer Motion, and a dynamic project showcase.',
+    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+    liveUrl: 'https://coding-portfolio-ryo7.vercel.app',
+    githubUrl: 'https://github.com/shravan-del/portfolio',
+    featured: true,
+    startDate: '2024-03',
+    endDate: '2024-03',
+    category: 'Web Development',
+    image: '/images/portfolio.png'
+  },
+  {
+    id: 'ai-ml-project',
+    slug: 'ai-ml-project',
+    title: 'AI/ML Research Project',
+    description: 'Research project focused on implementing and comparing various machine learning algorithms for sentiment analysis and natural language processing.',
+    technologies: ['Python', 'TensorFlow', 'NLP', 'Machine Learning'],
+    githubUrl: 'https://github.com/shravan-del/ai-ml-project',
+    featured: true,
+    startDate: '2023-09',
+    endDate: '2023-12',
+    category: 'AI/ML',
+    image: '/images/ai-ml.png'
+  },
+  {
+    id: 'web-security',
+    slug: 'web-security',
+    title: 'Web Security Scanner',
+    description: 'A comprehensive web security scanning tool that identifies common vulnerabilities and provides detailed reports with remediation suggestions.',
+    technologies: ['Python', 'Flask', 'Security', 'API'],
+    githubUrl: 'https://github.com/shravan-del/web-security',
+    featured: true,
+    startDate: '2023-06',
+    endDate: '2023-08',
+    category: 'Security',
+    image: '/images/security.png'
+  },
+  {
     id: 'vt-gps',
+    slug: 'vt-gps',
     title: 'Virginia Tech Map GPS',
     description: 'An AI-powered navigation assistant for Virginia Tech campus, built using Hugging Face transformers. Helps students and visitors find their way around campus with natural language queries.',
     image: '/images/projects/vt-gps.png',
@@ -12,11 +53,11 @@ export const projects: Project[] = [
     featured: true,
     startDate: '2023-09',
     endDate: '2023-12',
-    category: 'AI/ML',
-    status: 'completed'
+    category: 'AI/ML'
   },
   {
     id: 'sentinel-dude',
+    slug: 'sentinel-dude',
     title: 'SentinelDude',
     description: 'A cybersecurity monitoring tool that uses machine learning to detect and alert on suspicious network activities and potential security threats.',
     image: '/images/projects/sentinel-dude.png',
@@ -25,11 +66,11 @@ export const projects: Project[] = [
     featured: true,
     startDate: '2023-03',
     endDate: '2023-06',
-    category: 'Security',
-    status: 'in-development'
+    category: 'Security'
   },
   {
     id: 'academic-agent',
+    slug: 'academic-agent',
     title: 'Academic Agent',
     description: 'An AI-powered academic assistant that helps students manage their coursework, deadlines, and study schedules. Features include smart reminders and personalized study recommendations.',
     image: '/images/projects/academic-agent.png',
@@ -39,11 +80,11 @@ export const projects: Project[] = [
     featured: true,
     startDate: '2023-01',
     endDate: '2023-04',
-    category: 'Education',
-    status: 'in-development'
+    category: 'Education'
   },
   {
     id: 'spritzai',
+    slug: 'spritzai',
     title: 'SpritzAI College',
     description: 'AI-powered college search and recommendation platform. Helps students find their ideal college match using machine learning algorithms.',
     image: '/images/projects/spritzai.png',
@@ -53,11 +94,11 @@ export const projects: Project[] = [
     featured: true,
     startDate: '2023-06',
     endDate: '2023-12',
-    category: 'AI/ML',
-    status: 'in-development'
+    category: 'AI/ML'
   },
   {
     id: 'saturn',
+    slug: 'saturn',
     title: 'Saturn Voice Recognition',
     description: 'Voice-controlled smart home system using advanced speech recognition and natural language processing.',
     image: '/images/projects/saturn.png',
@@ -66,11 +107,11 @@ export const projects: Project[] = [
     featured: true,
     startDate: '2023-01',
     endDate: '2023-05',
-    category: 'IoT',
-    status: 'in-development'
+    category: 'IoT'
   },
   {
     id: 'spartan',
+    slug: 'spartan',
     title: 'Spartan Bot',
     description: 'Discord bot for Virginia Tech students that provides course information, academic calendar updates, and campus notifications.',
     image: '/images/projects/spartan.png',
@@ -79,34 +120,34 @@ export const projects: Project[] = [
     featured: true,
     startDate: '2022-08',
     endDate: '2022-12',
-    category: 'Bot',
-    status: 'in-development'
+    category: 'Bot'
   },
   {
-    title: "Portfolio Website",
-    description: "A modern portfolio website built with Next.js, TypeScript, and Tailwind CSS. Features dark mode, responsive design, and dynamic project pages.",
-    image: "/images/projects/portfolio.png",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "React"],
-    githubUrl: "https://github.com/yourusername/portfolio",
-    liveUrl: "https://your-portfolio-url.com",
-    slug: "portfolio-website"
+    id: 'task-manager',
+    slug: 'task-manager',
+    title: 'Task Manager',
+    description: 'A full-stack task management application with authentication, real-time updates, and collaborative features.',
+    image: '/images/projects/task-manager.png',
+    technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Socket.io'],
+    githubUrl: 'https://github.com/yourusername/task-manager',
+    liveUrl: 'https://your-task-manager-url.com',
+    featured: false,
+    startDate: '2023-01',
+    endDate: '2023-03',
+    category: 'Web Development'
   },
   {
-    title: "Task Manager",
-    description: "A full-stack task management application with authentication, real-time updates, and collaborative features.",
-    image: "/images/projects/task-manager.png",
-    technologies: ["React", "Node.js", "MongoDB", "Express", "Socket.io"],
-    githubUrl: "https://github.com/yourusername/task-manager",
-    liveUrl: "https://your-task-manager-url.com",
-    slug: "task-manager"
-  },
-  {
-    title: "Weather Dashboard",
-    description: "A weather dashboard that shows current weather conditions and forecasts for multiple cities using OpenWeather API.",
-    image: "/images/projects/weather-app.png",
-    technologies: ["React", "OpenWeather API", "Chart.js", "Tailwind CSS"],
-    githubUrl: "https://github.com/yourusername/weather-dashboard",
-    liveUrl: "https://your-weather-app-url.com",
-    slug: "weather-dashboard"
+    id: 'weather-dashboard',
+    slug: 'weather-dashboard',
+    title: 'Weather Dashboard',
+    description: 'A weather dashboard that shows current weather conditions and forecasts for multiple cities using OpenWeather API.',
+    image: '/images/projects/weather-app.png',
+    technologies: ['React', 'OpenWeather API', 'Chart.js', 'Tailwind CSS'],
+    githubUrl: 'https://github.com/yourusername/weather-dashboard',
+    liveUrl: 'https://your-weather-app-url.com',
+    featured: false,
+    startDate: '2023-04',
+    endDate: '2023-06',
+    category: 'Web Development'
   }
 ]; 

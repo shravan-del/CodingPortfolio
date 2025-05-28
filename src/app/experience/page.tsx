@@ -6,71 +6,47 @@ import { Tab } from '@headlessui/react';
 import { BiBriefcase, BiBook, BiMedal, BiCodeAlt, BiTime, BiChart } from 'react-icons/bi';
 import Timeline from '@/components/Timeline';
 import ProjectShowcase from '@/components/ProjectShowcase';
-import SkillsGraph from '@/components/SkillsGraph';
+import { SkillsGraph } from '@/components/SkillsGraph';
 
-const experiences = [
+interface Experience {
+  title: string;
+  company: string;
+  location: string;
+  period: string;
+  description: string;
+  achievements: string[];
+}
+
+interface Skill {
+  name: string;
+  level: number;
+  category: string;
+}
+
+const experiences: Experience[] = [
   {
-    title: "DOD/Raytheon ITX internship",
-    company: "DOD/Raytheon",
-    period: "August 2024 - April 2025",
-    type: "Internship",
-    location: "Blacksburg, VA",
-    description: [
-      "Participated in a competitive internship program focused on supporting national security missions through software development, systems engineering, system administration, and cybersecurity",
-      "Collaborated with experienced software developers on various projects and coursework aimed to advance skills in C++, Python, Java, and other object-oriented programming languages"
-    ],
-    skills: ["C++", "Python", "Java", "System Administration", "Cybersecurity"]
+    title: 'Computer Science Student',
+    company: 'Virginia Tech',
+    location: 'Blacksburg, VA',
+    period: '2020 - Present',
+    description: 'Pursuing a Bachelor\'s degree in Computer Science with a focus on AI/ML and Software Development. Current GPA: 3.6',
+    achievements: [
+      'Dean\'s List for academic excellence',
+      'Active member of CS student organizations',
+      'Participated in multiple hackathons'
+    ]
   },
   {
-    title: "Software Engineer",
-    company: "Sentivity AI",
-    period: "December 2024 - Current",
-    type: "Full-time",
-    location: "Blacksburg, VA",
-    description: [
-      "Used AI-powered sentiment analysis to track negative speech shifts in right-wing Reddit communities during key political events",
-      "Built an NLP pipeline with CardiffNLP sentiment model, processing large-scale Reddit data to quantify sentiment changes"
-    ],
-    skills: ["NLP", "AI", "Python", "Data Analysis", "Machine Learning"]
-  },
-  {
-    title: "Software Developer",
-    company: "Aventura Adams",
-    period: "June 2024 - October 2024",
-    type: "Full-time",
-    location: "Blacksburg, VA",
-    description: [
-      "Experimented with AI models under different setups, shadowing an expert. Developed AI development software",
-      "Developed two AI models, one for analyzing themes in complex literature and another for detecting fake stock news, both based on the latest NLP/WIFI multimodal",
-      "Worked in depth with react, flask, and other applications like Firebase and SQL to complete these projects"
-    ],
-    skills: ["AI Development", "NLP", "React", "Flask", "Firebase", "SQL"]
-  },
-  {
-    title: "Software Engineering Intern",
-    company: "Chainbridge Solutions",
-    period: "June 2023 - August 2023",
-    type: "Internship",
-    location: "Chantilly, VA",
-    description: [
-      "Developed a voice assistant with a software that surveys websites for potential cyber threats",
-      "Created a web application using Flask and React for a contracting project",
-      "Worked with Java, Python, CSS, HTML, Flask, Git, Git hash, Machine learning, C++, SQL"
-    ],
-    skills: ["Java", "Python", "React", "Flask", "Machine Learning", "SQL", "Git"]
-  },
-  {
-    title: "Software Lead",
-    company: "RockSAT Design Team",
-    period: "July 2023 - Current",
-    type: "Project",
-    location: "Blacksburg, VA",
-    description: [
-      "Designing a space tether that can provide a small satellite with power and a mechanical connection",
-      "Contributed 5K+ lines of code to an established codebase via Git",
-      "Wrote an 8-page paper and gave multiple presentations on-campus"
-    ],
-    skills: ["System Design", "Git", "Technical Writing", "Presentation Skills"]
+    title: 'Software Development Intern',
+    company: 'Tech Company',
+    location: 'Remote',
+    period: 'Summer 2023',
+    description: 'Worked on developing and maintaining web applications using modern technologies.',
+    achievements: [
+      'Developed new features for the company\'s main product',
+      'Collaborated with senior developers on complex projects',
+      'Improved application performance by 30%'
+    ]
   }
 ];
 
@@ -173,6 +149,21 @@ const upcomingExperiences = [
   }
 ];
 
+const skills: Skill[] = [
+  { name: 'Python', level: 90, category: 'Languages' },
+  { name: 'Java', level: 85, category: 'Languages' },
+  { name: 'JavaScript/TypeScript', level: 85, category: 'Languages' },
+  { name: 'C++', level: 80, category: 'Languages' },
+  { name: 'React', level: 85, category: 'Frontend' },
+  { name: 'Next.js', level: 80, category: 'Frontend' },
+  { name: 'Node.js', level: 75, category: 'Backend' },
+  { name: 'Flask', level: 80, category: 'Backend' },
+  { name: 'Machine Learning', level: 75, category: 'AI/ML' },
+  { name: 'NLP', level: 70, category: 'AI/ML' },
+  { name: 'AWS', level: 65, category: 'Cloud' },
+  { name: 'Docker', level: 70, category: 'DevOps' }
+];
+
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
@@ -233,7 +224,7 @@ export default function ExperiencePage() {
           <Tab.Panels>
             {/* Timeline Panel */}
             <Tab.Panel>
-              <Timeline />
+              <Timeline experiences={experiences} />
             </Tab.Panel>
 
             {/* Work Experience Panel */}
@@ -259,23 +250,12 @@ export default function ExperiencePage() {
                     </div>
                     
                     <div className="mb-4">
-                      <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">Key Responsibilities</h4>
+                      <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">Key Achievements</h4>
                       <ul className="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300">
-                        {exp.description.map((item, i) => (
-                          <li key={i}>{item}</li>
+                        {exp.achievements.map((achievement, i) => (
+                          <li key={i}>{achievement}</li>
                         ))}
                       </ul>
-                    </div>
-
-                    <div className="flex flex-wrap gap-2">
-                      {exp.skills.map((skill, i) => (
-                        <span
-                          key={i}
-                          className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm"
-                        >
-                          {skill}
-                        </span>
-                      ))}
                     </div>
                   </motion.div>
                 ))}
@@ -284,7 +264,9 @@ export default function ExperiencePage() {
 
             {/* Skills Panel */}
             <Tab.Panel>
-              <SkillsGraph />
+              <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
+                <SkillsGraph skills={skills} />
+              </div>
             </Tab.Panel>
 
             {/* Projects Panel */}

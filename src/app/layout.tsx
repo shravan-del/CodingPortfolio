@@ -9,6 +9,7 @@ import { Analytics } from '@vercel/analytics/react';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   title: 'Shravan Athikinasetti - Computer Science Student & Developer',
   description: 'Computer Science student at Virginia Tech with a 3.6 GPA. Experienced in software development, AI/ML, and full-stack development.',
   keywords: [
