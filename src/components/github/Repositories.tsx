@@ -1,9 +1,47 @@
-import React from 'react';
+'use client';
+
+import React, { useEffect, useState } from 'react';
 import { getGitHubRepos } from '@/lib/github';
 import { formatDistanceToNow } from 'date-fns';
+import { GitHubRepo } from '@/types/github';
 
-export async function Repositories() {
-  const repos = await getGitHubRepos();
+export function Repositories() {
+  const [repos, setRepos] = useState<GitHubRepo[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchRepos = async () => {
+      try {
+        const data = await getGitHubRepos();
+        setRepos(data);
+      } catch (error) {
+        console.error('Error fetching GitHub repositories:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchRepos();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="space-y-4">
+        <h3 className="text-xl font-bold mb-4">Featured Repositories</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {[...Array(4)].map((_, i) => (
+            <div key={i} className="p-4 rounded-lg bg-white dark:bg-gray-800 shadow-sm animate-pulse">
+              <div className="space-y-3">
+                <div className="h-4 w-3/4 bg-gray-200 dark:bg-gray-700 rounded" />
+                <div className="h-3 w-full bg-gray-200 dark:bg-gray-700 rounded" />
+                <div className="h-3 w-2/3 bg-gray-200 dark:bg-gray-700 rounded" />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-4">

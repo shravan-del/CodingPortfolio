@@ -1,8 +1,9 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { getGitHubActivity } from '@/lib/github';
 import { formatDistanceToNow } from 'date-fns';
+import { GitHubActivity } from '@/types/github';
 
 function getActivityIcon(type: string) {
   switch (type) {
@@ -33,7 +34,7 @@ function getActivityIcon(type: string) {
   }
 }
 
-function getActivityDescription(activity: any) {
+function getActivityDescription(activity: GitHubActivity) {
   switch (activity.type) {
     case 'PushEvent':
       return `Pushed ${activity.payload.commits?.length || 0} commits to`;
@@ -46,14 +47,52 @@ function getActivityDescription(activity: any) {
   }
 }
 
-export async function ActivityFeed() {
-  const activities = await getGitHubActivity();
+export function ActivityFeed() {
+  const [activities, setActivities] = useState<GitHubActivity[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchActivities = async () => {
+      try {
+        const data = await getGitHubActivity();
+        setActivities(data);
+      } catch (error) {
+        console.error('Error fetching GitHub activity:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchActivities();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="space-y-4">
+        <h3 className="text-xl font-bold mb-4">Recent Activity</h3>
+        <div className="space-y-4">
+          {[...Array(3)].map((_, i) => (
+            <div
+              key={i}
+              className="flex items-start space-x-3 p-4 rounded-lg bg-white dark:bg-gray-800 shadow-sm animate-pulse"
+            >
+              <div className="w-5 h-5 bg-gray-200 dark:bg-gray-700 rounded" />
+              <div className="flex-1 space-y-2">
+                <div className="h-3 w-3/4 bg-gray-200 dark:bg-gray-700 rounded" />
+                <div className="h-2 w-1/2 bg-gray-200 dark:bg-gray-700 rounded" />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-4">
       <h3 className="text-xl font-bold mb-4">Recent Activity</h3>
       <div className="space-y-4">
-        {activities.map((activity: any) => (
+        {activities.map((activity) => (
           <div
             key={activity.id}
             className="flex items-start space-x-3 p-4 rounded-lg bg-white dark:bg-gray-800 shadow-sm"

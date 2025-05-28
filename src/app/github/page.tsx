@@ -1,4 +1,6 @@
-import React from 'react';
+'use client';
+
+import React, { useEffect, useState } from 'react';
 import { Profile } from '@/components/github/Profile';
 import { Repositories } from '@/components/github/Repositories';
 import { ActivityFeed } from '@/components/github/ActivityFeed';

@@ -1,8 +1,45 @@
-import React from 'react';
-import { getGitHubStats } from '@/lib/github';
+'use client';
 
-export async function Profile() {
-  const stats = await getGitHubStats();
+import React, { useEffect, useState } from 'react';
+import { getGitHubStats } from '@/lib/github';
+import { GitHubStats } from '@/types/github';
+
+export function Profile() {
+  const [stats, setStats] = useState<GitHubStats | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchStats = async () => {
+      try {
+        const data = await getGitHubStats();
+        setStats(data);
+      } catch (error) {
+        console.error('Error fetching GitHub stats:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchStats();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="p-6 rounded-lg bg-white dark:bg-gray-800 shadow-sm animate-pulse">
+        <div className="flex items-center space-x-4">
+          <div className="w-16 h-16 bg-gray-200 dark:bg-gray-700 rounded-full" />
+          <div className="space-y-2">
+            <div className="h-4 w-32 bg-gray-200 dark:bg-gray-700 rounded" />
+            <div className="h-3 w-24 bg-gray-200 dark:bg-gray-700 rounded" />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (!stats) {
+    return null;
+  }
 
   return (
     <div className="p-6 rounded-lg bg-white dark:bg-gray-800 shadow-sm">
