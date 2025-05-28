@@ -12,6 +12,7 @@ declare module '@/types/project' {
     endDate?: string;
     category?: string;
     slug: string;
+    status: 'completed' | 'in-development';
   }
 }
 

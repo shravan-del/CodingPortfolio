@@ -10,7 +10,8 @@ interface Experience {
   location: string;
   period: string;
   description: string;
-  achievements: string[];
+  highlights: string[];
+  type: string;
 }
 
 interface TimelineProps {
@@ -58,12 +59,12 @@ const Timeline: React.FC<TimelineProps> = ({ experiences }) => {
                   {experience.description}
                 </p>
                 <ul className="list-disc list-inside space-y-2">
-                  {experience.achievements.map((achievement, i) => (
+                  {experience.highlights.map((highlight, i) => (
                     <li
                       key={i}
                       className="text-gray-600 dark:text-gray-400"
                     >
-                      {achievement}
+                      {highlight}
                     </li>
                   ))}
                 </ul>

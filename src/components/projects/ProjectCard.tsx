@@ -13,108 +13,82 @@ interface ProjectCardProps {
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
-  const {
-    title,
-    description,
-    image,
-    technologies,
-    githubUrl,
-    liveUrl,
-    slug,
-    startDate,
-    endDate
-  } = project;
-
-  const isHuggingFaceProject = liveUrl?.includes('huggingface.co');
-
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      whileHover={{ y: -5 }}
-      transition={{ duration: 0.3 }}
-      className="group bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+      whileHover={{ scale: 1.02 }}
+      className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden"
     >
-      <Link href={`/projects/${slug}`} className="block relative">
-        <div className="relative h-48 w-full overflow-hidden">
-          {image ? (
-            <>
-              <Image
-                src={image}
-                alt={title}
-                fill
-                className="object-cover transform group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </>
-          ) : (
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-              <span className="text-white text-lg font-medium">{title[0]}</span>
-            </div>
-          )}
+      {project.image && (
+        <div className="relative h-48">
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            className="object-cover"
+          />
         </div>
-      </Link>
-
+      )}
       <div className="p-6">
-        <Link href={`/projects/${slug}`}>
-          <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-            {title}
+        <div className="flex justify-between items-start mb-4">
+          <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+            {project.title}
           </h3>
-        </Link>
-
-        <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">
-          {description}
+          <span className={`px-3 py-1 rounded-full text-sm font-medium ${
+            project.status === 'completed' 
+              ? 'bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-300'
+              : 'bg-yellow-100 dark:bg-yellow-900 text-yellow-600 dark:text-yellow-300'
+          }`}>
+            {project.status === 'completed' ? 'Completed' : 'In Development'}
+          </span>
+        </div>
+        
+        <p className="text-gray-600 dark:text-gray-300 mb-4">
+          {project.description}
         </p>
 
         <div className="flex flex-wrap gap-2 mb-4">
-          {technologies.map((tech) => (
+          {project.technologies.map((tech, index) => (
             <span
-              key={tech}
-              className="px-2 py-1 text-xs font-medium bg-blue-100/80 dark:bg-blue-900/80 text-blue-800 dark:text-blue-100 rounded-full backdrop-blur-sm"
+              key={index}
+              className="px-2 py-1 text-sm bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full"
             >
               {tech}
             </span>
           ))}
         </div>
 
-        {(startDate || endDate) && (
-          <div className="text-sm text-gray-500 dark:text-gray-400 mb-4">
-            {startDate && <span>{startDate}</span>}
-            {startDate && endDate && <span> - </span>}
-            {endDate && <span>{endDate}</span>}
+        {project.status === 'completed' && (
+          <div className="flex gap-4 mt-4">
+            {project.githubUrl && (
+              <Link
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400"
+              >
+                <FaGithub className="w-5 h-5 mr-2" />
+                <span>GitHub</span>
+              </Link>
+            )}
+            {project.liveUrl && (
+              <Link
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400"
+              >
+                <FaExternalLinkAlt className="w-4 h-4 mr-2" />
+                <span>Live Demo</span>
+              </Link>
+            )}
           </div>
         )}
-
-        <div className="flex gap-4 mt-auto">
-          {githubUrl && (
-            <motion.a
-              href={githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              className="flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
-            >
-              <FaGithub className="text-lg" />
-              <span>Code</span>
-            </motion.a>
-          )}
-          {liveUrl && (
-            <motion.a
-              href={liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              className={`flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors ${
-                isHuggingFaceProject
-                  ? 'text-yellow-600 dark:text-yellow-400 hover:text-yellow-700 dark:hover:text-yellow-300'
-                  : 'text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300'
-              }`}
-            >
-              <FaExternalLinkAlt className="text-sm" />
-              <span>{isHuggingFaceProject ? '🤗 Demo' : 'Live Demo'}</span>
-            </motion.a>
-          )}
-        </div>
+        
+        {project.status === 'in-development' && (
+          <p className="text-sm text-gray-500 dark:text-gray-400 italic mt-4">
+            Links will be available once the project is completed
+          </p>
+        )}
       </div>
     </motion.div>
   );

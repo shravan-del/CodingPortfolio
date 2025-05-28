@@ -7,13 +7,12 @@ export const projects: Project[] = [
     title: 'Portfolio Website',
     description: 'A modern, responsive portfolio website built with Next.js, TypeScript, and Tailwind CSS. Features include dark mode, animations with Framer Motion, and a dynamic project showcase.',
     technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
-    liveUrl: 'https://coding-portfolio-ryo7.vercel.app',
-    githubUrl: 'https://github.com/shravan-del/portfolio',
     featured: true,
     startDate: '2024-03',
     endDate: '2024-03',
     category: 'Web Development',
-    image: '/images/portfolio.png'
+    image: '/images/portfolio.png',
+    status: 'in-development'
   },
   {
     id: 'ai-ml-project',
@@ -21,12 +20,12 @@ export const projects: Project[] = [
     title: 'AI/ML Research Project',
     description: 'Research project focused on implementing and comparing various machine learning algorithms for sentiment analysis and natural language processing.',
     technologies: ['Python', 'TensorFlow', 'NLP', 'Machine Learning'],
-    githubUrl: 'https://github.com/shravan-del/ai-ml-project',
     featured: true,
     startDate: '2023-09',
     endDate: '2023-12',
     category: 'AI/ML',
-    image: '/images/ai-ml.png'
+    image: '/images/ai-ml.png',
+    status: 'in-development'
   },
   {
     id: 'web-security',
@@ -34,12 +33,12 @@ export const projects: Project[] = [
     title: 'Web Security Scanner',
     description: 'A comprehensive web security scanning tool that identifies common vulnerabilities and provides detailed reports with remediation suggestions.',
     technologies: ['Python', 'Flask', 'Security', 'API'],
-    githubUrl: 'https://github.com/shravan-del/web-security',
     featured: true,
     startDate: '2023-06',
     endDate: '2023-08',
     category: 'Security',
-    image: '/images/security.png'
+    image: '/images/security.png',
+    status: 'in-development'
   },
   {
     id: 'vt-gps',
@@ -53,7 +52,8 @@ export const projects: Project[] = [
     featured: true,
     startDate: '2023-09',
     endDate: '2023-12',
-    category: 'AI/ML'
+    category: 'AI/ML',
+    status: 'completed'
   },
   {
     id: 'sentinel-dude',
@@ -62,11 +62,11 @@ export const projects: Project[] = [
     description: 'A cybersecurity monitoring tool that uses machine learning to detect and alert on suspicious network activities and potential security threats.',
     image: '/images/projects/sentinel-dude.png',
     technologies: ['Python', 'TensorFlow', 'Elasticsearch', 'Kibana', 'Docker'],
-    githubUrl: 'https://github.com/sathikinasetti/sentinel-dude',
     featured: true,
     startDate: '2023-03',
     endDate: '2023-06',
-    category: 'Security'
+    category: 'Security',
+    status: 'in-development'
   },
   {
     id: 'academic-agent',
@@ -75,12 +75,11 @@ export const projects: Project[] = [
     description: 'An AI-powered academic assistant that helps students manage their coursework, deadlines, and study schedules. Features include smart reminders and personalized study recommendations.',
     image: '/images/projects/academic-agent.png',
     technologies: ['Next.js', 'OpenAI API', 'MongoDB', 'Node.js', 'Express'],
-    githubUrl: 'https://github.com/sathikinasetti/academic-agent',
-    liveUrl: 'https://academic-agent.vercel.app',
     featured: true,
     startDate: '2023-01',
     endDate: '2023-04',
-    category: 'Education'
+    category: 'Education',
+    status: 'in-development'
   },
   {
     id: 'spritzai',
@@ -89,12 +88,11 @@ export const projects: Project[] = [
     description: 'AI-powered college search and recommendation platform. Helps students find their ideal college match using machine learning algorithms.',
     image: '/images/projects/spritzai.png',
     technologies: ['Next.js', 'Python', 'TensorFlow', 'PostgreSQL', 'AWS'],
-    liveUrl: 'https://spritzai.com',
-    githubUrl: 'https://github.com/sathikinasetti/spritzai',
     featured: true,
     startDate: '2023-06',
     endDate: '2023-12',
-    category: 'AI/ML'
+    category: 'AI/ML',
+    status: 'in-development'
   },
   {
     id: 'saturn',
@@ -103,11 +101,11 @@ export const projects: Project[] = [
     description: 'Voice-controlled smart home system using advanced speech recognition and natural language processing.',
     image: '/images/projects/saturn.png',
     technologies: ['Python', 'PyTorch', 'FastAPI', 'React Native', 'Docker'],
-    githubUrl: 'https://github.com/sathikinasetti/saturn',
     featured: true,
     startDate: '2023-01',
     endDate: '2023-05',
-    category: 'IoT'
+    category: 'IoT',
+    status: 'in-development'
   },
   {
     id: 'spartan',
@@ -116,11 +114,11 @@ export const projects: Project[] = [
     description: 'Discord bot for Virginia Tech students that provides course information, academic calendar updates, and campus notifications.',
     image: '/images/projects/spartan.png',
     technologies: ['TypeScript', 'Discord.js', 'MongoDB', 'Node.js'],
-    githubUrl: 'https://github.com/sathikinasetti/spartan-bot',
     featured: true,
     startDate: '2022-08',
     endDate: '2022-12',
-    category: 'Bot'
+    category: 'Bot',
+    status: 'in-development'
   },
   {
     id: 'task-manager',
@@ -134,7 +132,8 @@ export const projects: Project[] = [
     featured: false,
     startDate: '2023-01',
     endDate: '2023-03',
-    category: 'Web Development'
+    category: 'Web Development',
+    status: 'in-development'
   },
   {
     id: 'weather-dashboard',
@@ -148,6 +147,7 @@ export const projects: Project[] = [
     featured: false,
     startDate: '2023-04',
     endDate: '2023-06',
-    category: 'Web Development'
+    category: 'Web Development',
+    status: 'in-development'
   }
 ]; 
