@@ -1,13 +1,43 @@
+import React from 'react';
 import { Inter } from 'next/font/google';
-import { ThemeProvider } from 'next-themes';
-import Navbar from '@/components/layout/Navbar';
+import type { Metadata } from 'next';
+import { Providers } from '@/components/Providers';
+import { CommandPalette } from '@/components/CommandPalette';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export const metadata = {
-  title: 'Medha Konda - Portfolio',
-  description: 'Personal portfolio showcasing projects in AI, cybersecurity, and business analytics',
+export const metadata: Metadata = {
+  title: 'Shravan Athikinasetti - Computer Science Student & Developer',
+  description: 'Computer Science student at Virginia Tech with a 3.6 GPA. Experienced in software development, AI/ML, and full-stack development.',
+  keywords: [
+    'Shravan Athikinasetti',
+    'Virginia Tech',
+    'Computer Science',
+    'Software Development',
+    'Full Stack Developer',
+    'Software Engineer',
+    'AI/ML',
+    'React',
+    'Next.js',
+    'TypeScript'
+  ],
+  authors: [{ name: 'Shravan Athikinasetti' }],
+  creator: 'Shravan Athikinasetti',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: process.env.NEXT_PUBLIC_SITE_URL,
+    title: 'Shravan Athikinasetti - Computer Science Student & Developer',
+    description: 'Computer Science student at Virginia Tech with a 3.6 GPA. Experienced in software development, AI/ML, and full-stack development.',
+    siteName: 'Shravan Athikinasetti Portfolio'
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Shravan Athikinasetti - Computer Science Student & Developer',
+    description: 'Computer Science student at Virginia Tech with a 3.6 GPA. Experienced in software development, AI/ML, and full-stack development.',
+    creator: '@sathikinasetti'
+  }
 };
 
 export default function RootLayout({
@@ -18,12 +48,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Navbar />
-          <main className="pt-16">
-            {children}
-          </main>
-        </ThemeProvider>
+        <Providers>
+          {children}
+          <CommandPalette />
+        </Providers>
       </body>
     </html>
   );

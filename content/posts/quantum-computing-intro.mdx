@@ -1,0 +1,74 @@
+---
+title: "Introduction to Quantum Computing: A Student's Perspective"
+date: 2024-03-15
+description: "Exploring the fascinating world of quantum computing, its principles, and why it matters for the future of technology."
+image: "/images/blog/quantum-computing.jpg"
+tags: ["Quantum Computing", "Computer Science", "Technology"]
+---
+
+# Introduction to Quantum Computing: A Student's Perspective
+
+As a Computer Science student with a minor in Quantum Computing at Virginia Tech, I've had the unique opportunity to explore one of the most fascinating frontiers in technology. In this post, I'll share my insights into quantum computing and why it's poised to revolutionize the field of computer science.
+
+## What is Quantum Computing?
+
+Quantum computing harnesses the principles of quantum mechanics to process information in fundamentally different ways than classical computers. While classical computers use bits that are either 0 or 1, quantum computers use quantum bits (qubits) that can exist in multiple states simultaneously through a phenomenon called superposition.
+
+## Key Concepts
+
+### Superposition
+Imagine a coin spinning on a table. While it's spinning, it's neither heads nor tails but rather in a state of both possibilities simultaneously. This is similar to how qubits work in quantum computing.
+
+### Entanglement
+When qubits become entangled, the state of one qubit becomes directly related to the state of another, regardless of the distance between them. Einstein famously called this "spooky action at a distance."
+
+```python
+# Example of creating a simple quantum circuit using Qiskit
+from qiskit import QuantumCircuit, execute, Aer
+
+# Create a quantum circuit with 2 qubits
+qc = QuantumCircuit(2)
+
+# Create entanglement between qubits
+qc.h(0)  # Apply Hadamard gate to first qubit
+qc.cx(0, 1)  # Apply CNOT gate with control qubit 0 and target qubit 1
+
+# Measure the qubits
+qc.measure_all()
+```
+
+## Applications in the Real World
+
+1. **Cryptography**
+   - Breaking current encryption methods
+   - Developing quantum-resistant cryptography
+
+2. **Drug Discovery**
+   - Simulating molecular interactions
+   - Accelerating the development of new medicines
+
+3. **Financial Modeling**
+   - Portfolio optimization
+   - Risk analysis
+
+## The Future of Quantum Computing
+
+The field is rapidly evolving, with companies like IBM, Google, and Microsoft making significant investments. As a student in this field, I'm particularly excited about:
+
+- Quantum machine learning algorithms
+- Error correction in quantum systems
+- Hybrid quantum-classical computing
+
+## Getting Started with Quantum Computing
+
+If you're interested in learning more about quantum computing, here are some resources I recommend:
+
+1. IBM Quantum Experience
+2. Qiskit Textbook
+3. Microsoft's Quantum Development Kit
+
+## Conclusion
+
+Quantum computing represents a paradigm shift in how we process information. While there are still many challenges to overcome, the potential applications are enormous. As students and developers, we have the opportunity to be part of this revolutionary change in computing.
+
+Feel free to reach out if you have any questions about quantum computing or would like to discuss potential collaborations! 

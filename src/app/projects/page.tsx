@@ -1,65 +1,69 @@
 'use client';
 
-import { useState } from 'react';
-import ProjectCard from '@/components/projects/ProjectCard';
+import React, { useState } from 'react';
+import { ProjectCard } from '@/components/projects/ProjectCard';
 import { projects } from '@/data/projects';
 
+// Get unique technologies from all projects
+const allTechnologies = Array.from(
+  new Set(projects.flatMap(project => project.technologies))
+).sort();
+
 export default function ProjectsPage() {
-  const [selectedTag, setSelectedTag] = useState<string>('');
+  const [selectedTech, setSelectedTech] = useState<string>('All');
 
-  // Get unique tags from all projects
-  const allTags = Array.from(
-    new Set(projects.flatMap((project) => project.tags))
-  ).sort();
-
-  // Filter projects based on selected tag
-  const filteredProjects = selectedTag
-    ? projects.filter((project) => project.tags.includes(selectedTag))
-    : projects;
+  const filteredProjects = selectedTech === 'All'
+    ? projects
+    : projects.filter(project => project.technologies.includes(selectedTech));
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-8">
-          Projects
-        </h1>
-
-        {/* Filter tags */}
-        <div className="mb-8">
-          <div className="flex flex-wrap gap-2">
-            <button
-              onClick={() => setSelectedTag('')}
-              className={`px-4 py-2 rounded-full text-sm font-medium ${
-                selectedTag === ''
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+    <div className="container mx-auto px-4 py-12">
+      <h1 className="text-4xl font-bold mb-8 text-gray-900 dark:text-white">
+        Projects
+      </h1>
+      
+      {/* Filter buttons */}
+      <div className="flex flex-wrap gap-2 mb-8">
+        <button
+          onClick={() => setSelectedTech('All')}
+          className={`px-4 py-2 rounded-full text-sm font-medium transition-colors
+            ${selectedTech === 'All'
+              ? 'bg-blue-600 text-white'
+              : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
+            }`}
+        >
+          All
+        </button>
+        {allTechnologies.map(tech => (
+          <button
+            key={tech}
+            onClick={() => setSelectedTech(tech)}
+            className={`px-4 py-2 rounded-full text-sm font-medium transition-colors
+              ${selectedTech === tech
+                ? 'bg-blue-600 text-white'
+                : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
               }`}
-            >
-              All
-            </button>
-            {allTags.map((tag) => (
-              <button
-                key={tag}
-                onClick={() => setSelectedTag(tag)}
-                className={`px-4 py-2 rounded-full text-sm font-medium ${
-                  selectedTag === tag
-                    ? 'bg-blue-600 text-white'
-                    : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
-                }`}
-              >
-                {tag}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Projects grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project) => (
-            <ProjectCard key={project.id} {...project} />
-          ))}
-        </div>
+          >
+            {tech}
+          </button>
+        ))}
       </div>
+
+      {/* Projects grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {filteredProjects.map(project => (
+          <ProjectCard key={project.slug} project={project} />
+        ))}
+      </div>
+
+      {/* No projects found message */}
+      {filteredProjects.length === 0 && (
+        <div className="text-center py-12">
+          <h3 className="text-xl text-gray-600 dark:text-gray-400">
+            No projects found with the selected technology.
+          </h3>
+        </div>
+      )}
     </div>
   );
 } 

@@ -1,27 +1,31 @@
-# Medha Konda's Portfolio
+# Shravan Athikinasetti's Portfolio
 
-A modern, responsive portfolio website built with Next.js, TypeScript, and Tailwind CSS. This portfolio showcases my projects, skills, and experience in AI, cybersecurity, and business analytics.
+Welcome to my professional portfolio! I'm a Computer Science student at Virginia Tech with a passion for software development, AI/ML, and creating innovative solutions.
 
-## Features
+## 🚀 Live Demo
+[Visit My Portfolio](https://your-portfolio-url.vercel.app)
 
-- 🎨 Modern and responsive design with dark mode support
-- 💼 Interactive project gallery with filtering
-- 📱 Mobile-first approach
-- 🚀 Fast page loads with Next.js
-- 🎯 SEO optimized
-- 📧 Contact form integration
-- 🌙 Dark/Light mode toggle
+## 💼 Features
 
-## Tech Stack
+- 📊 Interactive Skills Visualization with D3.js
+- 📅 Dynamic Timeline of Professional Journey
+- 🎯 Project Showcase with Live Demos
+- 📱 Fully Responsive Design
+- 🌙 Dark/Light Mode Support
+- ⚡ Built with Next.js 14 & TypeScript
 
-- **Framework:** Next.js 14 with App Router
+## 🛠 Tech Stack
+
+- **Framework:** Next.js 14
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS
+- **Animations:** Framer Motion
+- **Data Visualization:** D3.js
 - **Deployment:** Vercel
-- **Form Handling:** Formspree (to be integrated)
-- **Analytics:** Google Analytics (to be integrated)
+- **UI Components:** Headless UI
+- **Icons:** React Icons
 
-## Getting Started
+## 🔧 Local Development
 
 1. Clone the repository:
 ```bash
@@ -34,47 +38,43 @@ cd portfolio
 npm install
 ```
 
-3. Run the development server:
+3. Start the development server:
 ```bash
 npm run dev
 ```
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Project Structure
+## 📝 Environment Variables
 
-```
-portfolio/
-├── src/
-│   ├── app/                 # App router pages
-│   ├── components/          # React components
-│   │   ├── layout/         # Layout components
-│   │   ├── ui/            # UI components
-│   │   └── projects/      # Project-related components
-│   ├── data/              # Static data
-│   ├── lib/               # Utility functions
-│   └── types/             # TypeScript types
-├── public/                # Static files
-└── tailwind.config.js    # Tailwind configuration
+Create a `.env.local` file in the root directory:
+
+```env
+NEXT_PUBLIC_SITE_URL=your-deployed-url
 ```
 
-## Customization
+## 📦 Production Build
 
-1. Update the personal information in `src/data/projects.ts`
-2. Replace images in the `public` directory
-3. Modify the theme colors in `tailwind.config.js`
-4. Update the content in page components
+```bash
+npm run build
+npm start
+```
 
-## Deployment
+## 🚀 Deployment
 
-The site can be deployed to Vercel with a single click:
+This portfolio is optimized for deployment on Vercel:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/portfolio)
+1. Push your code to GitHub
+2. Import your repository on Vercel
+3. Configure environment variables
+4. Deploy!
 
-## License
+## 📫 Contact
 
-MIT License - feel free to use this for your own portfolio!
+- LinkedIn: [Shravan Athikinasetti](https://linkedin.com/in/sathikinasetti)
+- GitHub: [shravan-del](https://github.com/shravan-del)
+- Email: sathikinasetti@vt.edu
 
-## Contact
+## 📄 License
 
-For any questions or feedback, please reach out through the contact form on the website or connect with me on [LinkedIn](https://linkedin.com/in/yourusername). 
+This project is open source and available under the MIT License. 
