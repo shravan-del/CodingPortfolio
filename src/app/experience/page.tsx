@@ -1,6 +1,5 @@
 // app/experience/page.tsx
-// Up-to-date experience timeline. Removes the outdated "upcoming" language on
-// things that have already happened, leads with Amazon/Raytheon as the anchors.
+// Up-to-date experience timeline.
 
 import type { Metadata } from "next";
 
@@ -33,19 +32,6 @@ const EXPERIENCE: ExperienceEntry[] = [
       "Selected for Amazon's SDE Co-op program",
       "Will work on a production service in one of Amazon's engineering orgs",
       "Focus on scalable systems, code review rigor, and Leadership Principles in practice",
-    ],
-  },
-  {
-    role: "Software Development Intern",
-    company: "RTX / Raytheon",
-    location: "Aurora, CO",
-    period: "Summer 2026",
-    tense: "upcoming",
-    highlight: true,
-    bullets: [
-      "Defense technology and mission-critical systems development",
-      "Secure software development practices and government compliance",
-      "Cleared for work on sensitive national-security software projects",
     ],
   },
   {
@@ -145,8 +131,8 @@ export default function ExperiencePage() {
           Where I&apos;ve <em>worked</em>.
         </h1>
         <p className="text-lg text-[color:var(--color-fg-muted)] leading-relaxed max-w-2xl">
-          A mix of AI startups, federal contractors, and research teams —
-          with Big Tech coming up next.
+          A mix of AI startups, federal contractors, and research teams — with an Amazon SDE
+          Co-op up next.
         </p>
       </header>
 

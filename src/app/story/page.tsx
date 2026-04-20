@@ -36,8 +36,7 @@ export default function StoryPage() {
             published peer-reviewed research at <Em>ACM CSCW 2024</Em>, built
             ML infrastructure that handles{" "}
             <Em>10,000+ requests a day</Em> at Sentivity AI, and I&apos;m
-            incoming at both <Em>Amazon</Em> (SDE Co-op) and <Em>Raytheon</Em>{" "}
-            in Summer 2026.
+            incoming at <Em>Amazon</Em> for an SDE Co-op in Summer 2026.
           </p>
           <p>
             But that&apos;s the bullet-point version. Here&apos;s what actually
@@ -180,13 +179,9 @@ export default function StoryPage() {
               Distributed systems work on federal contracts — Agile practice,
               secure coding, and learning what enterprise really looks like.
             </ListItem>
-            <ListItem title="Amazon (confirmed, Summer 2026)">
-              Incoming SDE Co-op. Can&apos;t wait to ship something at that
-              scale.
-            </ListItem>
-            <ListItem title="Raytheon (confirmed, Summer 2026)">
-              Defense software — mission-critical systems and secure
-              development practice.
+            <ListItem title="Amazon (Summer 2026)">
+              Incoming SDE Co-op — focusing on scalable systems and shipping in a
+              large engineering org.
             </ListItem>
           </ul>
         </section>
@@ -197,7 +192,7 @@ export default function StoryPage() {
           <p className="cmd-label mb-3">chapter 06</p>
           <h2 className="font-display text-3xl mb-5">What I&apos;m chasing.</h2>
           <p>
-            Short-term: make the most of Amazon and Raytheon this summer,
+            Short-term: make the most of Amazon this summer,
             finish strong at Virginia Tech, and apply for the{" "}
             <Em>OpenAI Research Fellowship</Em> and{" "}
             <Em>graduate school</Em> this cycle.

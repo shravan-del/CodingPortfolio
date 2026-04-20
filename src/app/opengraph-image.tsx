@@ -59,7 +59,7 @@ export default function OpenGraphImage() {
             fontFamily: 'system-ui, sans-serif',
           }}
         >
-          ACM CSCW 2024 · Sentivity AI · Amazon SDE Co-op & Raytheon (2026) · Virginia Tech CS +
+          ACM CSCW 2024 · Sentivity AI · Amazon SDE Co-op (2026) · Virginia Tech CS +
           Quantum Computing
         </div>
       </div>

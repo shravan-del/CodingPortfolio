@@ -29,8 +29,7 @@ function Hero() {
       <p className="text-lg md:text-xl text-[color:var(--color-fg-muted)] max-w-2xl mb-12 leading-relaxed">
         Shravan Athikinasetti. CS + Quantum Computing at Virginia Tech. Published at{' '}
         <AccentLink href="/research">ACM CSCW 2024</AccentLink>, incoming{' '}
-        <AccentLink href="/experience">Amazon SDE Co-op</AccentLink> and{' '}
-        <AccentLink href="/experience">Raytheon intern</AccentLink> Summer 2026. Previously built ML
+        <AccentLink href="/experience">Amazon SDE Co-op</AccentLink> Summer 2026. Previously built ML
         infrastructure at <AccentLink href="/experience">Sentivity AI</AccentLink>.
       </p>
 

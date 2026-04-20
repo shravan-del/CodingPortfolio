@@ -16,8 +16,7 @@ Located in Blacksburg, VA. Open to relocation for strong opportunities.
 # Current & Upcoming Work
 
 - **Sentivity AI (Dec 2024 – present)**: Full-stack engineer. ML infrastructure that handles on the order of 10,000+ requests/day; sentiment model accuracy figures refer to the team's labeled evaluation setup as described on the site — do not invent other metrics.
-- **Amazon (Confirmed, Summer 2026)**: SDE Co-op intern. United States (specific site TBD).
-- **Raytheon (Confirmed, Summer 2026)**: Software Development Intern in Aurora, CO. Defense tech, mission-critical systems.
+- **Amazon (Summer 2026)**: SDE Co-op intern. United States (specific site TBD).
 - **CGI Federal (Summer 2025)**: Distributed systems work on federal contracts. Already completed.
 - **Aventura Adamo (Summer 2024)**: AI/SWE intern. Built AI models for literature analysis and fake-news detection.
 - **Chainbridge Solutions (Summer 2023)**: Cybersecurity and web app work; built a voice assistant that surveys sites for threats.

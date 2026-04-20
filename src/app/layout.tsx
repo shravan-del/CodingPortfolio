@@ -25,14 +25,13 @@ export const metadata: Metadata = {
     template: '%s · Shravan Athikinasetti',
   },
   description:
-    'I build AI systems that ship. Published ACM CSCW 2024 researcher, incoming Amazon SDE Co-op & Raytheon intern. CS + Quantum Computing at Virginia Tech.',
+    'I build AI systems that ship. Published ACM CSCW 2024 researcher, incoming Amazon SDE Co-op. CS + Quantum Computing at Virginia Tech.',
   keywords: [
     'Shravan Athikinasetti',
     'Software Engineer',
     'AI Researcher',
     'Virginia Tech',
     'Amazon SDE Intern',
-    'Raytheon',
     'Machine Learning',
     'NLP',
     'CSCW 2024',
@@ -41,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Shravan Athikinasetti — Software Engineer & AI Researcher',
     description:
-      "Published AI researcher & full-stack engineer. Amazon SDE Co-op '26, Raytheon '26.",
+      "Published AI researcher & full-stack engineer. Amazon SDE Co-op '26.",
     type: 'website',
     locale: 'en_US',
     siteName: 'Shravan Athikinasetti',
