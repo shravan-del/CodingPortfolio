@@ -1,100 +1,353 @@
 'use client';
 
-import React from 'react';
-import { PhotoGallery } from '../components/PhotoGallery';
-import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-900 relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 z-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(0,0,0,0.2) 1px, transparent 0)',
-          backgroundSize: '40px 40px'
-        }}/>
+    <>
+      <Hero />
+      <CurrentlySection />
+      <FeaturedWork />
+      <MetricsStrip />
+      <ResearchCallout />
+      <ContactCTA />
+    </>
+  );
+}
+
+function Hero() {
+  return (
+    <section className="container-prose pt-16 md:pt-28 pb-24 md:pb-32">
+      <p className="cmd-label mb-8">whoami</p>
+
+      <h1 className="font-display mb-8 max-w-5xl">
+        I build <em>AI systems</em> that ship —<br />
+        from <em>research papers</em> to <em>production</em>.
+      </h1>
+
+      <p className="text-lg md:text-xl text-[color:var(--color-fg-muted)] max-w-2xl mb-12 leading-relaxed">
+        Shravan Athikinasetti. CS + Quantum Computing at Virginia Tech. Published at{' '}
+        <AccentLink href="/research">ACM CSCW 2024</AccentLink>, incoming{' '}
+        <AccentLink href="/experience">Amazon SDE Co-op</AccentLink> and{' '}
+        <AccentLink href="/experience">Raytheon intern</AccentLink> Summer 2026. Previously built ML
+        infrastructure at <AccentLink href="/experience">Sentivity AI</AccentLink>.
+      </p>
+
+      <div className="flex flex-wrap gap-3">
+        <Link href="/work" className="btn btn-primary">
+          See the work →
+        </Link>
+        <Link href="/chat" className="btn">
+          <span className="text-[color:var(--color-signal)]">◉</span> Ask me anything
+        </Link>
+        <Link href="/resume.pdf" target="_blank" className="btn">
+          Resume ↗
+        </Link>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          {/* Introduction Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="space-y-8"
+      <div className="mt-20 md:mt-28 max-w-2xl">
+        <Terminal />
+      </div>
+    </section>
+  );
+}
+
+function AccentLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <Link
+      href={href}
+      className="text-[color:var(--color-fg)] underline underline-offset-4 decoration-[color:var(--color-border-strong)] hover:decoration-[color:var(--color-signal)] hover:text-[color:var(--color-signal)] transition-colors"
+    >
+      {children}
+    </Link>
+  );
+}
+
+function Terminal() {
+  const lines = [
+    { prompt: '$', text: 'cat ~/now.md', delay: 0 },
+    { prompt: '', text: '', delay: 400, heading: true },
+    {
+      prompt: '',
+      text: '→ ramping up for Amazon SDE Co-op, Summer 2026',
+      delay: 500,
+    },
+    {
+      prompt: '',
+      text: '→ shipping CreatorMind to 200+ YouTubers',
+      delay: 600,
+    },
+    {
+      prompt: '',
+      text: '→ prepping for OpenAI Research Fellowship (May 2026)',
+      delay: 700,
+    },
+    { prompt: '', text: '→ reading: Deep Learning, Goodfellow et al.', delay: 800 },
+    { prompt: '', text: '', delay: 400 },
+    { prompt: '$', text: '_', delay: 400, cursor: true },
+  ];
+
+  const [visibleCount, setVisibleCount] = useState(0);
+
+  useEffect(() => {
+    if (visibleCount >= lines.length) return;
+    const t = setTimeout(
+      () => setVisibleCount((v) => v + 1),
+      lines[visibleCount]?.delay ?? 500
+    );
+    return () => clearTimeout(t);
+  }, [visibleCount]);
+
+  return (
+    <div
+      className="border border-[color:var(--color-border-strong)] bg-[color:var(--color-bg-sunken)] font-mono text-sm"
+      role="region"
+      aria-label="Current status"
+    >
+      <div className="flex items-center gap-2 px-4 py-2 border-b border-[color:var(--color-border)] text-xs text-[color:var(--color-fg-subtle)]">
+        <span className="w-3 h-3 rounded-full bg-[color:var(--color-border-strong)]" />
+        <span className="w-3 h-3 rounded-full bg-[color:var(--color-border-strong)]" />
+        <span className="w-3 h-3 rounded-full bg-[color:var(--color-border-strong)]" />
+        <span className="ml-3">~/shravan — zsh</span>
+      </div>
+
+      <div className="p-5 min-h-[260px]">
+        {lines.slice(0, visibleCount).map((line, i) => (
+          <div
+            key={i}
+            className={`flex gap-2 ${line.heading ? 'mt-2' : ''} ${line.text === '' ? 'h-4' : ''}`}
           >
-            <div className="space-y-4">
-              <h2 className="text-sm font-semibold text-blue-600 dark:text-blue-400 tracking-wide uppercase">
-                Software Engineer & AI Researcher
-              </h2>
-              <h1 className="text-5xl font-bold text-gray-900 dark:text-white leading-tight">
-                Hi, I'm Shravan Athikinasetti
-              </h1>
-              <div className="w-20 h-1 bg-blue-600 rounded"/>
-            </div>
-
-            <div className="prose prose-lg dark:prose-invert">
-              <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-                Currently pursuing my Bachelor's in Computer Science at Virginia Tech with a GPA of 3.6. I'm passionate about software development and artificial intelligence, focusing on creating innovative solutions that bridge cutting-edge technology with real-world applications.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap gap-4">
-              <motion.a
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                href="https://github.com/shravan-del"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 rounded-lg bg-gray-900 dark:bg-gray-700 text-white hover:bg-gray-800 dark:hover:bg-gray-600 transition-all shadow-lg hover:shadow-xl"
-              >
-                <svg
-                  className="w-5 h-5 mr-2"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                GitHub Profile
-              </motion.a>
-              <motion.a
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                href="https://linkedin.com/in/sathikinasetti"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl"
-              >
-                <svg
-                  className="w-5 h-5 mr-2"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-                Connect on LinkedIn
-              </motion.a>
-            </div>
-          </motion.div>
-
-          {/* Photo Gallery Section */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex justify-center"
-          >
-            <div className="bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-2xl">
-              <PhotoGallery />
-            </div>
-          </motion.div>
-        </div>
+            {line.prompt && (
+              <span className="text-[color:var(--color-signal)] shrink-0">{line.prompt}</span>
+            )}
+            <span className={line.cursor ? 'animate-pulse' : ''}>{line.text}</span>
+          </div>
+        ))}
       </div>
     </div>
   );
-} 
+}
+
+function CurrentlySection() {
+  return (
+    <section className="border-y border-[color:var(--color-border)] bg-[color:var(--color-bg-elevated)]">
+      <div className="container-prose py-10 flex flex-col md:flex-row md:items-center gap-6 md:gap-10">
+        <div className="flex items-center gap-3">
+          <span className="relative flex h-2.5 w-2.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[color:var(--color-signal)] opacity-75" />
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[color:var(--color-signal)]" />
+          </span>
+          <span className="cmd-label">status</span>
+        </div>
+        <p className="text-[color:var(--color-fg)] font-mono text-sm">
+          Open to{' '}
+          <strong className="text-[color:var(--color-signal)]">
+            Winter 2027 & Spring 2027 co-ops
+          </strong>
+          . Graduating <span className="text-[color:var(--color-fg-muted)]">December 2026</span>.
+          Based in <span className="text-[color:var(--color-fg-muted)]">Blacksburg, VA</span> (open to
+          relocation).
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function FeaturedWork() {
+  const projects = [
+    {
+      slug: 'codecompass',
+      index: '01',
+      title: 'CodeCompass',
+      tagline:
+        "An AI that reads your codebase and answers like a senior engineer who's lived in it.",
+      stack: ['Next.js', 'Claude API', 'Vector embeddings', 'TypeScript'],
+      status: 'Live',
+    },
+    {
+      slug: 'samaritan',
+      index: '02',
+      title: 'Samaritan',
+      tagline:
+        'An autonomous legal AI agent that extracts obligations and flags risks — running on Amazon Nova via Bedrock.',
+      stack: ['AWS Bedrock', 'Amazon Nova', 'Python', 'Agent loops'],
+      status: 'Live',
+    },
+    {
+      slug: 'creatormind',
+      index: '03',
+      title: 'CreatorMind',
+      tagline:
+        'A SaaS turning YouTube analytics into content strategy — real Stripe billing, tiered Claude models, 200+ users.',
+      stack: ['Next.js', 'Stripe', 'Claude Haiku/Sonnet', 'Postgres'],
+      status: 'Shipping',
+    },
+    {
+      slug: 'sentivity-pipeline',
+      index: '04',
+      title: 'Sentiment Shift Pipeline',
+      tagline:
+        'NLP pipeline tracking sentiment in political subreddits — 86.6% accuracy, 10K+ posts/day. Published at ACM CSCW 2024.',
+      stack: ['Python', 'CardiffNLP', 'Reddit API', 'Published'],
+      status: 'Research',
+    },
+  ];
+
+  return (
+    <section className="container-prose py-24 md:py-32">
+      <div className="flex items-end justify-between mb-14 md:mb-20">
+        <div>
+          <p className="cmd-label mb-4">ls featured/</p>
+          <h2 className="font-display">Selected work.</h2>
+        </div>
+        <Link
+          href="/work"
+          className="hidden md:inline-block link text-sm font-mono text-[color:var(--color-fg-muted)]"
+        >
+          all work →
+        </Link>
+      </div>
+
+      <div className="grid gap-0 divide-y divide-[color:var(--color-border)] border-y border-[color:var(--color-border)]">
+        {projects.map((p) => (
+          <Link
+            key={p.slug}
+            href={`/work/${p.slug}`}
+            className="group grid grid-cols-[auto_1fr_auto] gap-6 md:gap-10 items-start py-8 md:py-10 hover:bg-[color:var(--color-bg-elevated)] transition-colors px-4 md:px-6 -mx-4 md:-mx-6"
+          >
+            <span className="font-mono text-sm text-[color:var(--color-fg-subtle)] pt-2">{p.index}</span>
+
+            <div>
+              <div className="flex items-center gap-3 mb-3 flex-wrap">
+                <h3 className="font-display text-3xl md:text-4xl text-[color:var(--color-fg)] group-hover:text-[color:var(--color-signal)] transition-colors">
+                  {p.title}
+                </h3>
+                <StatusPill status={p.status} />
+              </div>
+              <p className="text-[color:var(--color-fg-muted)] text-lg max-w-2xl mb-4 leading-relaxed">
+                {p.tagline}
+              </p>
+              <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs font-mono text-[color:var(--color-fg-subtle)]">
+                {p.stack.map((s) => (
+                  <span key={s}>· {s}</span>
+                ))}
+              </div>
+            </div>
+
+            <span className="font-mono text-xl text-[color:var(--color-fg-subtle)] group-hover:text-[color:var(--color-signal)] group-hover:translate-x-1 transition-all pt-2 hidden md:block">
+              →
+            </span>
+          </Link>
+        ))}
+      </div>
+
+      <div className="mt-10 md:hidden">
+        <Link href="/work" className="btn">
+          all work →
+        </Link>
+      </div>
+    </section>
+  );
+}
+
+function StatusPill({ status }: { status: string }) {
+  const variants: Record<string, string> = {
+    Live: 'bg-[color:var(--color-signal)]/10 text-[color:var(--color-signal)] border-[color:var(--color-signal)]/30',
+    Shipping:
+      'bg-[color:var(--color-signal)]/10 text-[color:var(--color-signal)] border-[color:var(--color-signal)]/30',
+    Research:
+      'bg-transparent text-[color:var(--color-fg-muted)] border-[color:var(--color-border-strong)]',
+  };
+  return (
+    <span
+      className={`font-mono text-[10px] tracking-wider uppercase px-2 py-0.5 border ${variants[status]}`}
+    >
+      {status}
+    </span>
+  );
+}
+
+function MetricsStrip() {
+  const metrics = [
+    { value: '86.6%', label: "Model accuracy\n(Sentivity NLP)" },
+    { value: '10K+', label: 'Requests/day\n(production infra)' },
+    { value: '200+', label: 'Users shipped to\n(CreatorMind)' },
+    { value: '3.65', label: "GPA, Dean's List\nDistinction '23–'26" },
+  ];
+
+  return (
+    <section className="border-y border-[color:var(--color-border)]">
+      <div className="container-prose grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-[color:var(--color-border)]">
+        {metrics.map((m, i) => (
+          <div key={i} className={`py-10 px-4 md:px-8 ${i === 0 ? 'border-l-0' : ''}`}>
+            <div className="font-display text-5xl md:text-6xl text-[color:var(--color-signal)] mb-2">
+              {m.value}
+            </div>
+            <div className="text-xs font-mono text-[color:var(--color-fg-muted)] whitespace-pre-line leading-relaxed">
+              {m.label}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function ResearchCallout() {
+  return (
+    <section className="container-prose py-24 md:py-32">
+      <div className="grid md:grid-cols-[1fr_auto] gap-10 md:gap-16 items-end border-t border-[color:var(--color-border)] pt-16">
+        <div>
+          <p className="cmd-label mb-4">publication</p>
+          <h2 className="font-display mb-6">
+            Published at <em>ACM CSCW 2024</em>.
+          </h2>
+          <p className="text-lg text-[color:var(--color-fg-muted)] max-w-2xl leading-relaxed mb-6">
+            Peer-reviewed research on sentiment analysis of political discourse on Reddit, using
+            CardiffNLP transformer models to quantify affective shifts during key sociopolitical events
+            at scale.
+          </p>
+          <p className="font-mono text-xs text-[color:var(--color-fg-subtle)]">
+            Computer-Supported Cooperative Work & Social Computing · 2024
+          </p>
+        </div>
+        <Link href="/research" className="btn btn-primary shrink-0">
+          Read the paper →
+        </Link>
+      </div>
+    </section>
+  );
+}
+
+function ContactCTA() {
+  return (
+    <section className="container-prose py-24 md:py-32">
+      <div className="text-center max-w-3xl mx-auto">
+        <p className="cmd-label mb-6">./contact.sh</p>
+        <h2 className="font-display mb-6 text-4xl md:text-6xl">
+          Currently looking for <em>Winter 2027</em> &<br />
+          <em>Spring 2027</em> co-op roles.
+        </h2>
+        <p className="text-lg text-[color:var(--color-fg-muted)] mb-10">
+          If you&apos;re hiring, building something ambitious, or just want to chat about research —
+          I&apos;d love to hear from you.
+        </p>
+        <div className="flex flex-wrap gap-3 justify-center">
+          <a href="mailto:sathikinasetti@vt.edu" className="btn btn-primary">
+            Email me →
+          </a>
+          <Link href="/chat" className="btn">
+            <span className="text-[color:var(--color-signal)]">◉</span> Or ask my AI twin
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}

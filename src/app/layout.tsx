@@ -1,45 +1,61 @@
 import React from 'react';
-import { Inter } from 'next/font/google';
+import { Instrument_Serif } from 'next/font/google';
+import { GeistSans } from 'geist/font/sans';
+import { GeistMono } from 'geist/font/mono';
 import type { Metadata } from 'next';
-import { Providers } from '@/components/Providers';
-import { CommandPalette } from '@/components/CommandPalette';
-import './globals.css';
 import { Analytics } from '@vercel/analytics/react';
+import './globals.css';
+import Nav from '@/components/Nav';
+import Footer from '@/components/Footer';
 
-const inter = Inter({ subsets: ['latin'] });
+const instrumentSerif = Instrument_Serif({
+  subsets: ['latin'],
+  weight: ['400'],
+  style: ['normal', 'italic'],
+  variable: '--font-display',
+});
+
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://coding-portfolio-zeta.vercel.app';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
-  title: 'Shravan Athikinasetti - Computer Science Student & Developer',
-  description: 'Computer Science student at Virginia Tech with a 3.6 GPA. Experienced in software development, AI/ML, and full-stack development.',
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: 'Shravan Athikinasetti — Software Engineer & AI Researcher',
+    template: '%s · Shravan Athikinasetti',
+  },
+  description:
+    'I build AI systems that ship. Published ACM CSCW 2024 researcher, incoming Amazon SDE Co-op & Raytheon intern. CS + Quantum Computing at Virginia Tech.',
   keywords: [
     'Shravan Athikinasetti',
-    'Virginia Tech',
-    'Computer Science',
-    'Software Development',
-    'Full Stack Developer',
     'Software Engineer',
-    'AI/ML',
-    'React',
-    'Next.js',
-    'TypeScript'
+    'AI Researcher',
+    'Virginia Tech',
+    'Amazon SDE Intern',
+    'Raytheon',
+    'Machine Learning',
+    'NLP',
+    'CSCW 2024',
   ],
   authors: [{ name: 'Shravan Athikinasetti' }],
-  creator: 'Shravan Athikinasetti',
   openGraph: {
+    title: 'Shravan Athikinasetti — Software Engineer & AI Researcher',
+    description:
+      "Published AI researcher & full-stack engineer. Amazon SDE Co-op '26, Raytheon '26.",
     type: 'website',
     locale: 'en_US',
-    url: process.env.NEXT_PUBLIC_SITE_URL,
-    title: 'Shravan Athikinasetti - Computer Science Student & Developer',
-    description: 'Computer Science student at Virginia Tech with a 3.6 GPA. Experienced in software development, AI/ML, and full-stack development.',
-    siteName: 'Shravan Athikinasetti Portfolio'
+    siteName: 'Shravan Athikinasetti',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Shravan Athikinasetti - Computer Science Student & Developer',
-    description: 'Computer Science student at Virginia Tech with a 3.6 GPA. Experienced in software development, AI/ML, and full-stack development.',
-    creator: '@sathikinasetti'
-  }
+    title: 'Shravan Athikinasetti — Software Engineer & AI Researcher',
+    description:
+      "Published AI researcher & full-stack engineer. Amazon SDE Co-op '26.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -48,14 +64,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <Providers>
-          {children}
-          <CommandPalette />
-        </Providers>
+    <html
+      lang="en"
+      className={`dark ${instrumentSerif.variable} ${GeistSans.variable} ${GeistMono.variable}`}
+      suppressHydrationWarning
+    >
+      <body>
+        <div className="relative z-[1] flex min-h-screen flex-col">
+          <Nav />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </div>
         <Analytics />
       </body>
     </html>
   );
-} 
+}

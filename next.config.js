@@ -3,7 +3,6 @@ const path = require('path');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
   images: {
     unoptimized: true,
     remotePatterns: [
@@ -14,10 +13,9 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'raw.githubusercontent.com',
-      }
-    ]
+      },
+    ],
   },
-  // Disable React StrictMode for d3 compatibility
   reactStrictMode: false,
   swcMinify: true,
   webpack: (config) => {
@@ -27,7 +25,13 @@ const nextConfig = {
     };
     return config;
   },
-  // Add any other configurations here
+  async redirects() {
+    return [
+      { source: '/projects', destination: '/work', permanent: true },
+      { source: '/projects/:slug', destination: '/work/:slug', permanent: true },
+      { source: '/about', destination: '/story', permanent: true },
+    ];
+  },
 };
 
-module.exports = withContentlayer(nextConfig); 
+module.exports = withContentlayer(nextConfig);
