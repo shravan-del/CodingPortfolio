@@ -51,30 +51,50 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
           {cs.tagline}
         </p>
 
-        {(cs.links.github || cs.links.demo) && (
-          <div className="mt-10 flex flex-wrap gap-3">
-            {cs.links.demo && cs.links.demo !== '#' && (
-              <a
-                href={cs.links.demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-primary"
-              >
-                Live demo ↗
-              </a>
-            )}
-            {cs.links.github && cs.links.github !== '#' && (
-              <a
-                href={cs.links.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn"
-              >
-                GitHub ↗
-              </a>
-            )}
-          </div>
-        )}
+        {(() => {
+          const showDemo = Boolean(cs.links.demo && cs.links.demo !== '#');
+          const showGh = Boolean(cs.links.github && cs.links.github !== '#');
+          const showPaper = Boolean(cs.links.paper && cs.links.paper !== '#');
+          return (
+            <>
+              {(showDemo || showGh || showPaper) && (
+                <div className="mt-10 flex flex-wrap gap-3">
+                  {showDemo && (
+                    <a
+                      href={cs.links.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-primary"
+                    >
+                      Live demo ↗
+                    </a>
+                  )}
+                  {showGh && (
+                    <a
+                      href={cs.links.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn"
+                    >
+                      GitHub ↗
+                    </a>
+                  )}
+                  {showPaper && (
+                    <Link href={cs.links.paper!} className="btn">
+                      Publication overview →
+                    </Link>
+                  )}
+                </div>
+              )}
+              {!showDemo && !showGh && !showPaper && (
+                <p className="mt-10 max-w-xl border border-[color:var(--color-border)] bg-[color:var(--color-bg-sunken)] px-4 py-3 text-sm font-mono leading-relaxed text-[color:var(--color-fg-muted)]">
+                  No public GitHub or demo URL is listed for this project. I am happy to walk through
+                  architecture, tradeoffs, and code in a conversation.
+                </p>
+              )}
+            </>
+          );
+        })()}
       </header>
 
       <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-[color:var(--color-border)] border-y border-[color:var(--color-border)] mb-16">

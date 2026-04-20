@@ -27,7 +27,7 @@ const Hero: React.FC = () => {
                 View Projects
               </Link>
               <a
-                href="https://www.linkedin.com/in/sathikinasetti"
+                href="https://www.linkedin.com/in/shravan-athikinasetti"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-8 py-3 border border-blue-600 text-blue-600 dark:text-blue-400 dark:border-blue-400 rounded-lg hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors"

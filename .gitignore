@@ -40,3 +40,6 @@ next-env.d.ts
 # Local revamp reference (not needed in repo)
 portfolio-revamp/
 portfolio-revamp.zip
+
+# Local resume source (deployed copy is public/resume.pdf)
+resume_website_1page.pdf

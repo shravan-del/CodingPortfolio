@@ -2,6 +2,10 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { CitationCopy } from '@/components/CitationCopy';
 
+/** ACM DL search — swap for direct DOI/PDF when you have the canonical proceedings link. */
+const ACM_SEARCH_URL =
+  'https://dl.acm.org/action/doSearch?AllField=Athikinasetti+Quantifying+Sentiment+Shifts+Reddit+CSCW';
+
 export const metadata: Metadata = {
   title: 'Research',
   description:
@@ -38,8 +42,12 @@ export default function ResearchPage() {
             Sociopolitical Events
           </h2>
 
-          <p className="font-mono text-xs text-[color:var(--color-fg-muted)] mb-8">
-            Athikinasetti, S. et al. · Proc. ACM Hum.-Comput. Interact., Vol. CSCW, 2024
+          <p className="font-mono text-xs text-[color:var(--color-fg-muted)] mb-2">
+            Authors and order: match the official ACM proceedings PDF (I am a co-author on this
+            work).
+          </p>
+          <p className="font-mono text-xs text-[color:var(--color-fg-subtle)] mb-8">
+            Proc. ACM Hum.-Comput. Interact., Vol. CSCW, 2024
           </p>
 
           <div className="space-y-5 text-[color:var(--color-fg-muted)] leading-relaxed">
@@ -47,12 +55,12 @@ export default function ResearchPage() {
               <span className="cmd-label">abstract</span>
             </p>
             <p>
-              This work examines how sentiment within right-wing Reddit communities shifts in response
-              to high-stakes sociopolitical events. We develop a pipeline that combines transformer-based
-              sentiment classification (CardiffNLP) with event-aligned time- series analysis to quantify
-              affective trajectories at the community level, processing large-scale Reddit data over
-              multi- month windows. We show that specific event categories produce measurable and
-              predictable sentiment inflections, and discuss implications for online community
+              This work examines how sentiment within politically aligned Reddit communities shifts in
+              response to high-stakes sociopolitical events. We develop a pipeline that combines
+              transformer-based sentiment classification (CardiffNLP) with event-aligned time-series
+              analysis to quantify affective trajectories at the community level, processing
+              large-scale Reddit data over multi-month windows. We show that specific event categories
+              produce measurable sentiment inflections, and discuss implications for online community
               research, platform governance, and the study of polarization.
             </p>
 
@@ -64,11 +72,12 @@ export default function ResearchPage() {
                 Designed and implemented the NLP pipeline that powers the sentiment analysis at scale
               </BulletItem>
               <BulletItem>
-                Tuned and evaluated the CardiffNLP model against hand-labeled data, achieving 86.6%
-                accuracy
+                Tuned and evaluated the CardiffNLP model against hand-labeled data; reported accuracy
+                (86.6%) is on our held-out annotation set — not a generic benchmark claim
               </BulletItem>
               <BulletItem>
-                Built the data ingestion infrastructure that processes 10,000+ posts per day
+                Built the data ingestion infrastructure that processes on the order of 10,000+ posts
+                per day at peak
               </BulletItem>
               <BulletItem>
                 Contributed to the event-alignment methodology and statistical analysis
@@ -76,14 +85,22 @@ export default function ResearchPage() {
             </ul>
           </div>
 
-          <div className="mt-10 flex flex-wrap gap-3">
-            <a href="#" className="btn btn-primary" target="_blank" rel="noopener noreferrer">
-              Read the paper (PDF) ↗
-            </a>
-            <a href="#" className="btn" target="_blank" rel="noopener noreferrer">
-              ACM DL ↗
-            </a>
-            <CitationCopy />
+          <div className="mt-10 flex flex-col gap-4">
+            <p className="text-xs font-mono text-[color:var(--color-fg-subtle)] leading-relaxed">
+              I do not hotlink a PDF or DOI here until the canonical ACM entry is wired in — use ACM
+              search below or ask me for the exact citation block.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href={ACM_SEARCH_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary"
+              >
+                Search ACM Digital Library ↗
+              </a>
+              <CitationCopy />
+            </div>
           </div>
         </div>
       </section>

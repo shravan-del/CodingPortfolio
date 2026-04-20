@@ -99,7 +99,7 @@ export default function StoryPage() {
           </h2>
           <p>
             In 2024, I worked on research examining sentiment shifts in
-            right-wing Reddit communities during high-stakes sociopolitical
+            politically aligned Reddit communities during high-stakes sociopolitical
             events. The system uses CardiffNLP transformer models to quantify
             affective tone across thousands of posts, then correlates sentiment
             trajectories with real-world events.
@@ -148,10 +148,10 @@ export default function StoryPage() {
             </ListItem>
             <ListItem title="CreatorMind">
               A SaaS for YouTube creators — the most grown-up of the three.
-              Real Stripe billing. Tiered Claude Haiku / Sonnet models based
-              on subscription level. <Em>200+ users</Em>, measurable{" "}
-              <Em>45% engagement increase</Em> for creators who use it
-              consistently.
+              Real Stripe billing and tiered Claude Haiku / Sonnet models by plan.
+              I do not put user counts or lift percentages on the public site
+              without a methodology I can show in an interview; happy to discuss
+              traction privately.
             </ListItem>
           </ul>
           <p>

@@ -82,7 +82,7 @@ export default function Footer() {
       <div className="border-t border-[color:var(--color-border)]">
         <div className="container-prose py-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs text-[color:var(--color-fg-muted)] font-mono">
           <span>© {year} Shravan Athikinasetti</span>
-          <span>Built with Next.js · Deployed on Vercel · v2.0</span>
+          <span>Built with Next.js · Deployed on Vercel</span>
         </div>
       </div>
     </footer>

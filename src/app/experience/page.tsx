@@ -25,7 +25,7 @@ const EXPERIENCE: ExperienceEntry[] = [
   {
     role: "SDE Co-op Intern",
     company: "Amazon",
-    location: "TBD",
+    location: "United States (site TBD)",
     period: "Summer 2026",
     tense: "upcoming",
     highlight: true,
@@ -56,7 +56,7 @@ const EXPERIENCE: ExperienceEntry[] = [
     tense: "current",
     highlight: true,
     bullets: [
-      "Built ML infrastructure processing 10,000+ requests/day at 86.6% model accuracy",
+      "Built ML infrastructure processing 10,000+ requests/day; 86.6% accuracy on our labeled sentiment evaluation set (not a generic leaderboard claim)",
       "Designed NLP pipeline for large-scale Reddit data — became basis for ACM CSCW 2024 paper",
       "Full-stack ownership: ingestion, inference, API, frontend",
     ],

@@ -81,7 +81,7 @@ function Terminal() {
     },
     {
       prompt: '',
-      text: '→ shipping CreatorMind to 200+ YouTubers',
+      text: '→ shipping CreatorMind (Stripe + tiered models)',
       delay: 600,
     },
     {
@@ -167,25 +167,25 @@ function FeaturedWork() {
       index: '01',
       title: 'CodeCompass',
       tagline:
-        "An AI that reads your codebase and answers like a senior engineer who's lived in it.",
+        "RAG-style codebase Q&A with Claude — multi-granularity retrieval and citations. In active development.",
       stack: ['Next.js', 'Claude API', 'Vector embeddings', 'TypeScript'],
-      status: 'Live',
+      status: 'In progress',
     },
     {
       slug: 'samaritan',
       index: '02',
       title: 'Samaritan',
       tagline:
-        'An autonomous legal AI agent that extracts obligations and flags risks — running on Amazon Nova via Bedrock.',
+        'Legal-document agent on AWS Bedrock + Amazon Nova — extraction and risk passes. Private build.',
       stack: ['AWS Bedrock', 'Amazon Nova', 'Python', 'Agent loops'],
-      status: 'Live',
+      status: 'In progress',
     },
     {
       slug: 'creatormind',
       index: '03',
       title: 'CreatorMind',
       tagline:
-        'A SaaS turning YouTube analytics into content strategy — real Stripe billing, tiered Claude models, 200+ users.',
+        'YouTube creator SaaS: Stripe billing, tiered models, analytics-driven strategy. Traction discussed privately.',
       stack: ['Next.js', 'Stripe', 'Claude Haiku/Sonnet', 'Postgres'],
       status: 'Shipping',
     },
@@ -194,7 +194,7 @@ function FeaturedWork() {
       index: '04',
       title: 'Sentiment Shift Pipeline',
       tagline:
-        'NLP pipeline tracking sentiment in political subreddits — 86.6% accuracy, 10K+ posts/day. Published at ACM CSCW 2024.',
+        'NLP pipeline for sentiment over time on Reddit — model evaluated on our labeled set; production-scale ingestion. ACM CSCW 2024.',
       stack: ['Python', 'CardiffNLP', 'Reddit API', 'Published'],
       status: 'Research',
     },
@@ -264,6 +264,8 @@ function StatusPill({ status }: { status: string }) {
       'bg-[color:var(--color-signal)]/10 text-[color:var(--color-signal)] border-[color:var(--color-signal)]/30',
     Research:
       'bg-transparent text-[color:var(--color-fg-muted)] border-[color:var(--color-border-strong)]',
+    'In progress':
+      'bg-transparent text-[color:var(--color-fg-muted)] border-[color:var(--color-signal)]/40',
   };
   return (
     <span
@@ -276,9 +278,9 @@ function StatusPill({ status }: { status: string }) {
 
 function MetricsStrip() {
   const metrics = [
-    { value: '86.6%', label: "Model accuracy\n(Sentivity NLP)" },
-    { value: '10K+', label: 'Requests/day\n(production infra)' },
-    { value: '200+', label: 'Users shipped to\n(CreatorMind)' },
+    { value: '86.6%', label: 'Classifier accuracy\n(on our labeled eval set)' },
+    { value: '10K+', label: 'Posts/day peak\n(Sentivity pipeline)' },
+    { value: 'CSCW', label: 'Peer-reviewed\npublication' },
     { value: '3.65', label: "GPA, Dean's List\nDistinction '23–'26" },
   ];
 

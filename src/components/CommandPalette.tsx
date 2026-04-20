@@ -6,20 +6,22 @@ import { useRouter } from 'next/navigation';
 import { Command } from 'cmdk';
 
 const socialLinks = {
-  github: 'https://github.com/sathikinasetti',
+  github: 'https://github.com/shravan-del',
   linkedin: 'https://linkedin.com/in/shravan-athikinasetti',
   twitter: 'https://twitter.com/sathikinasetti',
-  email: 'mailto:shravan@vt.edu'
+  email: 'mailto:sathikinasetti@vt.edu'
 };
 
 const navigationItems = [
   { name: 'Home', path: '/' },
-  { name: 'About', path: '/about' },
+  { name: 'Story', path: '/story' },
   { name: 'Experience', path: '/experience' },
-  { name: 'Projects', path: '/projects' },
+  { name: 'Work', path: '/work' },
+  { name: 'Research', path: '/research' },
+  { name: 'Ask me (chat)', path: '/chat' },
   { name: 'Blog', path: '/blog' },
   { name: 'Resume', path: '/resume.pdf' },
-  { name: 'Contact', path: '/contact' }
+  { name: 'Contact', path: '/contact' },
 ];
 
 export function CommandPalette() {

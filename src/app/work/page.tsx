@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Work',
   description:
-    "Selected projects — AI systems, ML infrastructure, and full-stack products I've shipped.",
+    "Selected projects — AI systems, ML infrastructure, and full-stack products I've shipped or co-authored.",
 };
 
 type Project = {
@@ -13,7 +13,7 @@ type Project = {
   tagline: string;
   year: string;
   stack: string[];
-  status: 'Live' | 'Shipping' | 'Research' | 'Archived';
+  status: 'Live' | 'Shipping' | 'Research' | 'Archived' | 'In progress';
   caseStudy: boolean;
   links?: { github?: string; demo?: string; paper?: string };
 };
@@ -23,40 +23,37 @@ const FEATURED_PROJECTS: Project[] = [
     slug: 'codecompass',
     title: 'CodeCompass',
     tagline:
-      "AI codebase analyzer. Point it at a repo; it answers like a senior engineer who's been on the team for years.",
+      'AI codebase Q&A: multi-granularity retrieval plus Claude, with citations back into the tree. In active development.',
     year: '2025',
     stack: ['Next.js', 'Claude API', 'Vector embeddings', 'TypeScript'],
-    status: 'Live',
+    status: 'In progress',
     caseStudy: true,
-    links: { github: '#', demo: '#' },
   },
   {
     slug: 'samaritan',
     title: 'Samaritan',
     tagline:
-      'Autonomous legal AI agent on AWS Bedrock + Amazon Nova. Extracts obligations, flags risks, navigates complex filings.',
+      'Legal-document agent on AWS Bedrock + Amazon Nova: structured extraction and risk passes. Private build.',
     year: '2025',
-    stack: ['AWS Bedrock', 'Amazon Nova', 'Python', 'LangChain-style agent'],
-    status: 'Live',
+    stack: ['AWS Bedrock', 'Amazon Nova', 'Python', 'Agent-style loop'],
+    status: 'In progress',
     caseStudy: true,
-    links: { github: '#', demo: '#' },
   },
   {
     slug: 'creatormind',
     title: 'CreatorMind',
     tagline:
-      'SaaS turning YouTube analytics into content strategy. Real Stripe billing, tiered Claude models, 200+ users.',
+      'SaaS for YouTube creators: Stripe billing, tiered models, analytics-driven strategy. Repo and demo shared on request.',
     year: '2025',
     stack: ['Next.js', 'Stripe', 'Claude Haiku/Sonnet', 'Postgres'],
     status: 'Shipping',
     caseStudy: true,
-    links: { github: '#', demo: '#' },
   },
   {
     slug: 'sentivity-pipeline',
     title: 'Sentiment Shift Pipeline',
     tagline:
-      'NLP pipeline tracking sentiment in political subreddits. 86.6% accuracy, 10K+ posts/day. Published at ACM CSCW 2024.',
+      'NLP pipeline for sentiment over time in political Reddit communities — evaluated model and production-scale ingestion; published at ACM CSCW 2024.',
     year: '2024',
     stack: ['Python', 'CardiffNLP', 'Reddit API', 'Time-series analysis'],
     status: 'Research',
@@ -93,6 +90,10 @@ const OTHER_PROJECTS: Project[] = [
   },
 ];
 
+function linkIsReal(href?: string) {
+  return Boolean(href && href !== '#');
+}
+
 export default function WorkPage() {
   return (
     <section className="container-prose py-20 md:py-24">
@@ -102,8 +103,9 @@ export default function WorkPage() {
           Things I&apos;ve <em>built</em>.
         </h1>
         <p className="text-lg text-[color:var(--color-fg-muted)] max-w-2xl leading-relaxed">
-          Every project here is either deployed, in production with real users, or peer-reviewed. I keep
-          this page ruthless — no vanity demos, no &quot;coming soon&quot; placeholders.
+          Featured work includes shipped tools, private builds I can discuss in depth, and peer-reviewed
+          research. Anything without a public URL is labeled honestly — I will not use placeholder
+          buttons that pretend a repo or demo exists.
         </p>
       </header>
 
@@ -180,6 +182,12 @@ function FeaturedCard({ project }: { project: Project }) {
     </>
   );
 
+  const gh = project.links?.github;
+  const demo = project.links?.demo;
+  const paper = project.links?.paper;
+  const hasPills =
+    linkIsReal(gh) || linkIsReal(demo) || (paper && paper !== '#');
+
   return (
     <div className="group block border border-[color:var(--color-border)] bg-[color:var(--color-bg-elevated)] p-6 md:p-8 hover:border-[color:var(--color-signal)] transition-colors">
       {project.caseStudy ? (
@@ -190,15 +198,20 @@ function FeaturedCard({ project }: { project: Project }) {
         <div className="block">{main}</div>
       )}
 
-      {project.links && (
+      {hasPills && (
         <div className="flex flex-wrap gap-2 text-xs font-mono mt-6 pt-6 border-t border-[color:var(--color-border)]">
-          {project.links.github && (
-            <ResourcePill href={project.links.github}>github</ResourcePill>
-          )}
-          {project.links.demo && <ResourcePill href={project.links.demo}>demo</ResourcePill>}
-          {project.links.paper && <ResourcePill href={project.links.paper}>paper</ResourcePill>}
+          {linkIsReal(gh) && <ResourcePill href={gh!}>github</ResourcePill>}
+          {linkIsReal(demo) && <ResourcePill href={demo!}>demo</ResourcePill>}
+          {paper && paper !== '#' && <ResourcePill href={paper}>paper</ResourcePill>}
         </div>
       )}
+
+      {project.caseStudy && !hasPills && (
+        <p className="mt-6 pt-6 border-t border-[color:var(--color-border)] text-xs font-mono text-[color:var(--color-fg-muted)] leading-relaxed">
+          Repository and demo are not linked publicly — happy to walk through the project on request.
+        </p>
+      )}
+
     </div>
   );
 }
@@ -214,10 +227,12 @@ function SmallCard({ project }: { project: Project }) {
       <p className="text-[color:var(--color-fg-muted)] text-sm leading-relaxed mb-4">{project.tagline}</p>
       {project.links && (
         <div className="flex gap-2 text-xs font-mono">
-          {project.links.github && (
-            <ResourcePill href={project.links.github}>github</ResourcePill>
+          {linkIsReal(project.links.github) && (
+            <ResourcePill href={project.links.github!}>github</ResourcePill>
           )}
-          {project.links.demo && <ResourcePill href={project.links.demo}>demo</ResourcePill>}
+          {linkIsReal(project.links.demo) && (
+            <ResourcePill href={project.links.demo!}>demo</ResourcePill>
+          )}
         </div>
       )}
     </div>
@@ -225,7 +240,7 @@ function SmallCard({ project }: { project: Project }) {
 }
 
 function ResourcePill({ href, children }: { href: string; children: React.ReactNode }) {
-  const internal = href.startsWith('/') && href !== '#';
+  const internal = href.startsWith('/');
   const className =
     'px-2 py-1 border border-[color:var(--color-border-strong)] hover:border-[color:var(--color-signal)] hover:text-[color:var(--color-signal)] transition-colors';
   if (internal) {
@@ -236,12 +251,7 @@ function ResourcePill({ href, children }: { href: string; children: React.ReactN
     );
   }
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={className}
-    >
+    <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
       {children} ↗
     </a>
   );
@@ -256,6 +266,8 @@ function StatusPill({ status }: { status: Project['status'] }) {
       'bg-transparent text-[color:var(--color-fg-muted)] border-[color:var(--color-border-strong)]',
     Archived:
       'bg-transparent text-[color:var(--color-fg-subtle)] border-[color:var(--color-border)]',
+    'In progress':
+      'bg-transparent text-[color:var(--color-fg-muted)] border-[color:var(--color-signal)]/40',
   };
   return (
     <span
