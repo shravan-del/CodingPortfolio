@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Get in touch — I'm actively looking for Winter/Spring 2027 co-op roles.",
+  description: "Get in touch — I'm actively looking for Fall 2026 and Spring 2027 co-op roles.",
 };
 
 export default function ContactPage() {
@@ -18,7 +18,7 @@ export default function ContactPage() {
       </h1>
 
       <p className="text-lg text-[color:var(--color-fg-muted)] leading-relaxed max-w-2xl mb-12">
-        Currently open to <strong className="text-[color:var(--color-fg)]">Winter 2027 and Spring 2027 co-op roles</strong>. Also happy to chat about research, a startup idea, or just interesting problems.
+        Currently open to <strong className="text-[color:var(--color-fg)]">Fall 2026 and Spring 2027 co-op roles</strong>. Also happy to chat about research, a startup idea, or just interesting problems.
       </p>
 
       <div className="space-y-6 mb-16">
@@ -30,8 +30,8 @@ export default function ContactPage() {
         />
         <ContactRow
           label="linkedin"
-          value="linkedin.com/in/shravan-athikinasetti"
-          href="https://linkedin.com/in/shravan-athikinasetti"
+          value="linkedin.com/in/sathikinasetti"
+          href="https://linkedin.com/in/sathikinasetti"
         />
         <ContactRow
           label="github"

@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
               </span>
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300">
-              A passionate software developer with experience in AI, full-stack development, and software engineering. Currently pursuing Computer Science at Virginia Tech with a 3.6 GPA.
+              A passionate software developer with experience in AI, full-stack development, and software engineering. Currently pursuing Computer Science at Virginia Tech with a 3.65 GPA.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
@@ -27,7 +27,7 @@ const Hero: React.FC = () => {
                 View Projects
               </Link>
               <a
-                href="https://www.linkedin.com/in/shravan-athikinasetti"
+                href="https://www.linkedin.com/in/sathikinasetti"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-8 py-3 border border-blue-600 text-blue-600 dark:text-blue-400 dark:border-blue-400 rounded-lg hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors"

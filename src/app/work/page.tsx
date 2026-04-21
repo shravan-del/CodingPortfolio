@@ -53,7 +53,7 @@ const FEATURED_PROJECTS: Project[] = [
     slug: 'sentivity-pipeline',
     title: 'Sentiment Shift Pipeline',
     tagline:
-      'NLP pipeline for sentiment over time in political Reddit communities — evaluated model and production-scale ingestion; published at ACM CSCW 2024.',
+      'Sentiment analysis of political Reddit communities during sociopolitical events (ACM CSCW 2024).',
     year: '2024',
     stack: ['Python', 'CardiffNLP', 'Reddit API', 'Time-series analysis'],
     status: 'Research',

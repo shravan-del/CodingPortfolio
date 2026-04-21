@@ -7,7 +7,7 @@ import { Command } from 'cmdk';
 
 const socialLinks = {
   github: 'https://github.com/shravan-del',
-  linkedin: 'https://linkedin.com/in/shravan-athikinasetti',
+  linkedin: 'https://linkedin.com/in/sathikinasetti',
   twitter: 'https://twitter.com/sathikinasetti',
   email: 'mailto:sathikinasetti@vt.edu'
 };

@@ -112,7 +112,7 @@ const EXPERIENCE: ExperienceEntry[] = [
 const EDUCATION = {
   school: "Virginia Tech",
   degree: "B.S. Computer Science · Minor in Quantum Computing",
-  period: "Aug 2023 – Dec 2026",
+  period: "Aug 2023 – May 2027",
   gpa: "3.65",
   honors: [
     "Dean's List with Distinction (2023 – Current)",

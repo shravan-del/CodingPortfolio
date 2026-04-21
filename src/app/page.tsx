@@ -148,9 +148,9 @@ function CurrentlySection() {
         <p className="text-[color:var(--color-fg)] font-mono text-sm">
           Open to{' '}
           <strong className="text-[color:var(--color-signal)]">
-            Winter 2027 & Spring 2027 co-ops
+            Fall 2026 & Spring 2027 co-ops
           </strong>
-          . Graduating <span className="text-[color:var(--color-fg-muted)]">December 2026</span>.
+          . Graduating <span className="text-[color:var(--color-fg-muted)]">May 2027</span>.
           Based in <span className="text-[color:var(--color-fg-muted)]">Blacksburg, VA</span> (open to
           relocation).
         </p>
@@ -193,7 +193,7 @@ function FeaturedWork() {
       index: '04',
       title: 'Sentiment Shift Pipeline',
       tagline:
-        'NLP pipeline for sentiment over time on Reddit — model evaluated on our labeled set; production-scale ingestion. ACM CSCW 2024.',
+        'Sentiment analysis of political Reddit communities during sociopolitical events (ACM CSCW 2024).',
       stack: ['Python', 'CardiffNLP', 'Reddit API', 'Published'],
       status: 'Research',
     },
@@ -280,7 +280,7 @@ function MetricsStrip() {
     { value: '86.6%', label: 'Classifier accuracy\n(on our labeled eval set)' },
     { value: '10K+', label: 'Posts/day peak\n(Sentivity pipeline)' },
     { value: 'CSCW', label: 'Peer-reviewed\npublication' },
-    { value: '3.65', label: "GPA, Dean's List\nDistinction '23–'26" },
+    { value: '3.65', label: "GPA, Dean's List\nDistinction '23–'27" },
   ];
 
   return (
@@ -311,9 +311,8 @@ function ResearchCallout() {
             Published at <em>ACM CSCW 2024</em>.
           </h2>
           <p className="text-lg text-[color:var(--color-fg-muted)] max-w-2xl leading-relaxed mb-6">
-            Peer-reviewed research on sentiment analysis of political discourse on Reddit, using
-            CardiffNLP transformer models to quantify affective shifts during key sociopolitical events
-            at scale.
+            Peer-reviewed research on sentiment shifts in political Reddit communities during
+            high-stakes sociopolitical events, using CardiffNLP transformer models.
           </p>
           <p className="font-mono text-xs text-[color:var(--color-fg-subtle)]">
             Computer-Supported Cooperative Work & Social Computing · 2024
@@ -333,7 +332,7 @@ function ContactCTA() {
       <div className="text-center max-w-3xl mx-auto">
         <p className="cmd-label mb-6">./contact.sh</p>
         <h2 className="font-display mb-6 text-4xl md:text-6xl">
-          Currently looking for <em>Winter 2027</em> &<br />
+          Currently looking for <em>Fall 2026</em> &<br />
           <em>Spring 2027</em> co-op roles.
         </h2>
         <p className="text-lg text-[color:var(--color-fg-muted)] mb-10">

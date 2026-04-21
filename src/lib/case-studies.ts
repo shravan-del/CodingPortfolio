@@ -169,7 +169,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
   'sentivity-pipeline': {
     title: 'Sentiment Shift Pipeline',
     tagline:
-      'An NLP pipeline that quantifies sentiment shifts in politically aligned Reddit communities during high-stakes events — published at ACM CSCW 2024.',
+      'Peer-reviewed research on sentiment shifts in political Reddit communities during high-stakes sociopolitical events, using CardiffNLP transformer models (ACM CSCW 2024).',
     year: '2024',
     role: 'Engineer + co-author',
     status: 'Research',
@@ -191,7 +191,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
       paper: '/research',
     },
     problem: p(
-      'Community sentiment is often studied with static snapshots. We needed time-aligned signal around real-world events: how affect moves before and after identifiable sociopolitical moments, at scale, in politically aligned subreddits.'
+      'Community sentiment is often studied with static snapshots. We needed time-aligned signal around real-world events: how affect moves before and after identifiable sociopolitical moments, at scale, in political Reddit communities.'
     ),
     whatIBuilt: p(
       "A pipeline that ingests posts from a fixed set of subreddits over multi-month windows, classifies sentiment with CardiffNLP's Twitter-RoBERTa model (evaluated at 86.6% accuracy on a 500-post hand-labeled subset from our data), aggregates into event-aligned series, and surfaces inflections tied to event timestamps. Ingestion was engineered for large daily volume (on the order of 10,000+ posts per day at peak)."

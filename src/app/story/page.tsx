@@ -32,7 +32,7 @@ export default function StoryPage() {
           </h2>
           <p>
             I&apos;m a junior at Virginia Tech studying Computer Science with a
-            minor in Quantum Computing, graduating December 2026. I&apos;ve
+            minor in Quantum Computing, graduating May 2027. I&apos;ve
             published peer-reviewed research at <Em>ACM CSCW 2024</Em>, built
             ML infrastructure that handles{" "}
             <Em>10,000+ requests a day</Em> at Sentivity AI, and I&apos;m
@@ -98,7 +98,7 @@ export default function StoryPage() {
           </h2>
           <p>
             In 2024, I worked on research examining sentiment shifts in
-            politically aligned Reddit communities during high-stakes sociopolitical
+            political Reddit communities during high-stakes sociopolitical
             events. The system uses CardiffNLP transformer models to quantify
             affective tone across thousands of posts, then correlates sentiment
             trajectories with real-world events.

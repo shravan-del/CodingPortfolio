@@ -9,7 +9,7 @@ const ACM_SEARCH_URL =
 export const metadata: Metadata = {
   title: 'Research',
   description:
-    'Peer-reviewed research in NLP, social computing, and human-AI interaction. Published at ACM CSCW 2024.',
+    'Peer-reviewed research on sentiment shifts in political Reddit communities during high-stakes sociopolitical events, using CardiffNLP (ACM CSCW 2024).',
 };
 
 export default function ResearchPage() {
@@ -55,13 +55,12 @@ export default function ResearchPage() {
               <span className="cmd-label">abstract</span>
             </p>
             <p>
-              This work examines how sentiment within politically aligned Reddit communities shifts in
-              response to high-stakes sociopolitical events. We develop a pipeline that combines
+              Peer-reviewed research on sentiment shifts in political Reddit communities during
+              high-stakes sociopolitical events, using CardiffNLP transformer models. This work examines
+              how community-level sentiment moves in response to those events. We combine
               transformer-based sentiment classification (CardiffNLP) with event-aligned time-series
-              analysis to quantify affective trajectories at the community level, processing
-              large-scale Reddit data over multi-month windows. We show that specific event categories
-              produce measurable sentiment inflections, and discuss implications for online community
-              research, platform governance, and the study of polarization.
+              analysis, processing large-scale Reddit data over multi-month windows, and show that
+              specific event categories produce measurable sentiment inflections.
             </p>
 
             <p className="mt-8">

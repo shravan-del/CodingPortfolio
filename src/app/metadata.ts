@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 const title = 'Shravan Athikinasetti - Computer Science Student & Developer';
-const description = 'Computer Science student at Virginia Tech with a 3.6 GPA. Experienced in software development, AI/ML, and full-stack development. View my projects and experience.';
+const description = 'Computer Science student at Virginia Tech with a 3.65 GPA. Experienced in software development, AI/ML, and full-stack development. View my projects and experience.';
 
 export const metadata: Metadata = {
   title: {
