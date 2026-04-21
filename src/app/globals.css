@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Typography + color foundation — Instrument Serif (display), Geist (body), Geist Mono (code).
- * Font CSS variables come from app/layout.tsx (next/font + geist package). */
+/* Typography + color foundation — serif display fallback, Geist (body), Geist Mono (code). */
 
 :root {
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, "Times New Roman", serif;
   --color-bg: #0a0a0b;
   --color-bg-elevated: #13131a;
   --color-bg-sunken: #060608;

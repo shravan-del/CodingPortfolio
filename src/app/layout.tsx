@@ -1,5 +1,4 @@
 import React from 'react';
-import { Instrument_Serif } from 'next/font/google';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
 import type { Metadata } from 'next';
@@ -7,13 +6,6 @@ import { Analytics } from '@vercel/analytics/react';
 import './globals.css';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
-
-const instrumentSerif = Instrument_Serif({
-  subsets: ['latin'],
-  weight: ['400'],
-  style: ['normal', 'italic'],
-  variable: '--font-display',
-});
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || 'https://coding-portfolio-zeta.vercel.app';
@@ -65,7 +57,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark ${instrumentSerif.variable} ${GeistSans.variable} ${GeistMono.variable}`}
+      className={`dark ${GeistSans.variable} ${GeistMono.variable}`}
       suppressHydrationWarning
     >
       <body>
