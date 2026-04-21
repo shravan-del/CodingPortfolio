@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: '%s · Shravan Athikinasetti',
   },
   description:
-    'I build AI systems that ship. Published ACM CSCW 2024 researcher, incoming Amazon SDE Co-op. CS + Quantum Computing at Virginia Tech.',
+    'I build AI systems that ship. Published ACM CSCW 2024 researcher, incoming Amazon SDE intern (Devices, Seattle). CS + Quantum Computing at Virginia Tech.',
   keywords: [
     'Shravan Athikinasetti',
     'Software Engineer',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Shravan Athikinasetti — Software Engineer & AI Researcher',
     description:
-      "Published AI researcher & full-stack engineer. Amazon SDE Co-op '26.",
+      "Published AI researcher & full-stack engineer. Amazon Devices SDE intern '26.",
     type: 'website',
     locale: 'en_US',
     siteName: 'Shravan Athikinasetti',
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Shravan Athikinasetti — Software Engineer & AI Researcher',
     description:
-      "Published AI researcher & full-stack engineer. Amazon SDE Co-op '26.",
+      "Published AI researcher & full-stack engineer. Amazon Devices SDE intern '26.",
   },
   robots: {
     index: true,

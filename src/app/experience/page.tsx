@@ -22,53 +22,50 @@ type ExperienceEntry = {
 // Ordered newest first. Update as things change.
 const EXPERIENCE: ExperienceEntry[] = [
   {
-    role: "SDE Co-op Intern",
-    company: "Amazon",
-    location: "United States (site TBD)",
-    period: "Summer 2026",
+    role: "Software Development Engineer Intern",
+    company: "Amazon · Devices",
+    location: "Seattle, WA",
+    period: "June – Aug 2026",
     tense: "upcoming",
     highlight: true,
     bullets: [
-      "Selected for Amazon's SDE Co-op program",
-      "Will work on a production service in one of Amazon's engineering orgs",
-      "Focus on scalable systems, code review rigor, and Leadership Principles in practice",
+      "Incoming Summer 2026 SDE intern on Amazon Devices — shipping production software at scale in Seattle",
+      "Focus on scalable services, code review rigor, and Leadership Principles in practice",
     ],
   },
   {
-    role: "Full-Stack Engineer",
+    role: "Software Engineer",
     company: "Sentivity AI",
-    location: "Blacksburg, VA",
+    location: "Remote",
     period: "Dec 2024 – Present",
     tense: "current",
     highlight: true,
     bullets: [
-      "Built ML infrastructure processing 10,000+ requests/day; 86.6% accuracy on our labeled sentiment evaluation set (not a generic leaderboard claim)",
-      "Designed NLP pipeline for large-scale Reddit data — became basis for ACM CSCW 2024 paper",
-      "Full-stack ownership: ingestion, inference, API, frontend",
+      "Production Python/TypeScript backends handling large daily request volume; systematic profiling and performance work — including ML infrastructure supporting the ACM CSCW pipeline (10,000+ posts/day at peak)",
+      "Built automated CI/CD and shipped features in Agile sprints",
+      "Designed NLP pipeline for large-scale Reddit data — foundation for ACM CSCW 2024 publication",
     ],
   },
   {
     role: "Software Developer Intern",
-    company: "CGI Federal",
+    company: "CGI Federal · DTMI Simulation",
     location: "Fairfax, VA",
-    period: "Summer 2025",
+    period: "May – Aug 2025",
     tense: "past",
     bullets: [
-      "Distributed systems work on enterprise federal contracts",
-      "Secure coding practices and government compliance standards",
-      "Agile/Scrum methodology in production engineering team",
+      "Architected distributed microservices in Java, Python, and C++ for mission-critical DoD simulation infrastructure",
+      "Built scalable data pipelines with Docker and Kubernetes; mentored a junior engineer through code reviews",
     ],
   },
   {
-    role: "Raytheon ITX Intern (DOD program)",
-    company: "DOD / Raytheon",
+    role: "Software Engineering Intern",
+    company: "Raytheon ITX",
     location: "Blacksburg, VA",
     period: "Aug 2024 – Apr 2025",
     tense: "past",
     bullets: [
-      "Competitive DOD-affiliated program supporting national-security missions",
-      "8–12 hrs/week alongside coursework; rotating focus across SWE, systems, and cybersecurity",
-      "Worked primarily in C++, Python, Java across research-oriented projects",
+      "Developed production C++ software for real-time autonomous systems",
+      "Improved performance through targeted algorithmic and systems-level optimizations",
     ],
   },
   {
@@ -115,7 +112,7 @@ const EDUCATION = {
   period: "Aug 2023 – May 2027",
   gpa: "3.65",
   honors: [
-    "Dean's List with Distinction (2023 – Current)",
+    "Dean's List with Distinction (Aug 2023 – May 2027)",
     "1st place, Pitch Competition (2023)",
     "Startup Sprint — Runner-up",
     "Published at ACM CSCW 2024",
@@ -131,8 +128,8 @@ export default function ExperiencePage() {
           Where I&apos;ve <em>worked</em>.
         </h1>
         <p className="text-lg text-[color:var(--color-fg-muted)] leading-relaxed max-w-2xl">
-          A mix of AI startups, federal contractors, and research teams — with an Amazon SDE
-          Co-op up next.
+          A mix of AI startups, federal contractors, and research teams — with an Amazon
+          Devices SDE internship in Seattle up next.
         </p>
       </header>
 

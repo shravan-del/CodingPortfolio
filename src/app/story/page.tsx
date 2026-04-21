@@ -35,8 +35,9 @@ export default function StoryPage() {
             minor in Quantum Computing, graduating May 2027. I&apos;ve
             published peer-reviewed research at <Em>ACM CSCW 2024</Em>, built
             ML infrastructure that handles{" "}
-            <Em>10,000+ requests a day</Em> at Sentivity AI, and I&apos;m
-            incoming at <Em>Amazon</Em> for an SDE Co-op in Summer 2026.
+            <Em>10,000+ requests a day</Em> at Sentivity AI (remote), and I&apos;m
+            incoming at <Em>Amazon Devices</Em> in Seattle for an SDE internship in
+            Summer 2026.
           </p>
           <p>
             But that&apos;s the bullet-point version. Here&apos;s what actually
@@ -171,17 +172,19 @@ export default function StoryPage() {
             I&apos;ve been fortunate to work at companies across the spectrum:
           </p>
           <ul className="list-none pl-0 space-y-4 my-6">
-            <ListItem title="Sentivity AI (current)">
-              ML infrastructure and full-stack engineering. The work that
-              became the CSCW paper lives here.
+            <ListItem title="Sentivity AI (current, remote)">
+              Software engineer: production Python/TypeScript backends, CI/CD, and
+              Agile shipping — the large-scale Reddit sentiment work that became
+              the CSCW paper runs through this stack.
             </ListItem>
-            <ListItem title="CGI Federal (Summer 2025)">
-              Distributed systems work on federal contracts — Agile practice,
-              secure coding, and learning what enterprise really looks like.
+            <ListItem title="CGI Federal — DTMI Simulation (Summer 2025)">
+              Fairfax: distributed microservices in Java, Python, and C++ for
+              mission-critical DoD simulation; Docker/Kubernetes pipelines and code
+              reviews with a junior engineer I mentored.
             </ListItem>
-            <ListItem title="Amazon (Summer 2026)">
-              Incoming SDE Co-op — focusing on scalable systems and shipping in a
-              large engineering org.
+            <ListItem title="Amazon Devices — Seattle (Summer 2026)">
+              Incoming SDE intern — production software at scale with Devices in
+              Seattle.
             </ListItem>
           </ul>
         </section>

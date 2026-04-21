@@ -29,8 +29,9 @@ function Hero() {
       <p className="text-lg md:text-xl text-[color:var(--color-fg-muted)] max-w-2xl mb-12 leading-relaxed">
         Shravan Athikinasetti. CS + Quantum Computing at Virginia Tech. Published at{' '}
         <AccentLink href="/research">ACM CSCW 2024</AccentLink>, incoming{' '}
-        <AccentLink href="/experience">Amazon SDE Co-op</AccentLink> Summer 2026. Previously built ML
-        infrastructure at <AccentLink href="/experience">Sentivity AI</AccentLink>.
+        <AccentLink href="/experience">Amazon SDE intern</AccentLink> with Devices in Seattle
+        (Summer 2026). Previously built ML infrastructure at{' '}
+        <AccentLink href="/experience">Sentivity AI</AccentLink> (remote).
       </p>
 
       <div className="flex flex-wrap gap-3">
@@ -75,7 +76,7 @@ function Terminal() {
     { prompt: '', text: '', delay: 400, heading: true },
     {
       prompt: '',
-      text: '→ ramping up for Amazon SDE Co-op, Summer 2026',
+      text: '→ ramping up for Amazon SDE (Devices · Seattle), Summer 2026',
       delay: 500,
     },
     {
@@ -151,8 +152,8 @@ function CurrentlySection() {
             Fall 2026 & Spring 2027 co-ops
           </strong>
           . Graduating <span className="text-[color:var(--color-fg-muted)]">May 2027</span>.
-          Based in <span className="text-[color:var(--color-fg-muted)]">Blacksburg, VA</span> (open to
-          relocation).
+          Based in <span className="text-[color:var(--color-fg-muted)]">Blacksburg, VA</span>; Sentivity
+          is <span className="text-[color:var(--color-fg-muted)]">remote</span>. Open to relocation.
         </p>
       </div>
     </section>
